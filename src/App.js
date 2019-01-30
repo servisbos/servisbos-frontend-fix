@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+
 import { Link } from "react-router-dom";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
@@ -16,6 +17,6 @@ class App extends Component {
       </div>
       </Router>
   );
-}
+
 
 export default App;
