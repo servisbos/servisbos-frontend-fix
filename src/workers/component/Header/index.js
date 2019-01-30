@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-const styledBody = styled.nav`
+const StyledBody = styled.nav`
 padding-top: 56px;
 margin-bottom: 62px;
 background: #f8f8f8;
