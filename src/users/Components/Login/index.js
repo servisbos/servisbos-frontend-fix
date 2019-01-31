@@ -40,13 +40,12 @@ const BoxForm = styled.div`
 `;
 
 const BoxLogin = styled.div`
-  width: 50%;
+  width: 40%;
   float: left;
   border-right: 1px solid #e1e8ed;
   padding: 15px 25px;
 `;
 const BoxLoginLast = styled.div`
-  width: 50%;
   float: left;
   border-right: 1px solid #e1e8ed;
   padding: 15px 25px;
