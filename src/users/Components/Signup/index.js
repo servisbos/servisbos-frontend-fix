@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Redirect } from "react-router-dom";
+import Axios from "axios";
 
 const Main = styled.main`
   background: #3f4079;
@@ -14,7 +16,7 @@ const BackgroundBlue = styled.div`
 
 const Container = styled.div`
   max-width: 1140px;
-  padding-top: 60px;
+  padding-top: 40px;
   padding-bottom: 35px;
   width: 100%;
   padding-right: 15px;
@@ -61,10 +63,14 @@ const BoxForm = styled.div`
 const FormGroup = styled.div`
   margin-bottom: 25px;
 `;
+const FormGroupCenter = styled.div`
+  margin-bottom: 25px;
+  text-align: center !important;
+`;
 
 const FormInputControl = styled.input`
   font-size: 0.875rem;
-  min-height: 40px;
+  min-height: 10px;
   border-color: #e1e8ed;
   display: block;
   width: 100%;
@@ -93,73 +99,152 @@ const PassInfo = styled.div`
   border-radius: 3px;
 `;
 
+const BtnLogin = styled.input`
+  border: none;
+  color: #fff;
+  background: #e74e84;
+  cursor: pointer;
+  padding: 7px 20px;
+  display: inline-block;
+  outline: none;
+  font-size: 14px;
+  font-size: 0.875rem;
+`;
+
 class Signup extends Component {
+  state = {
+    username: "",
+    first_name: "",
+    last_name: "",
+    email: "",
+    password: "",
+    address: "",
+    city: "",
+    province: "",
+    postal_code: "",
+    success: false
+  };
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+  handleSubmit = async e => {
+    e.preventDefault();
+
+    const { success, ...rest } = this.state;
+
+    const response = await Axios.post("http://localhost:8000/api/auth/signup", {
+      ...rest
+    });
+    if (response.data === "Success") this.setState({ success: true });
+    else console.log("Gagal Bro");
+  };
   render() {
     return (
       <Main>
         <BackgroundBlue>
           <Container>
             <RegisterForm>
+              <h1>
+                <center>Register to Servisbos</center>
+              </h1>
+
               <JustifyContent>
                 <ColMd5>
-                  <form>
+                  <form onSubmit={this.handleSubmit}>
                     <BoxForm>
                       <FormGroup>
                         <label>Username</label>
                         <FormInputControl
                           type="text"
+                          name="username"
                           placeholder="Your username"
+                          onChange={this.handleChange}
+                          value={this.state.username}
                         />
                       </FormGroup>
                       <FormGroup>
                         <label>Email</label>
                         <FormInputControl
+                          name="email"
                           type="email"
                           placeholder="Your email address"
+                          onChange={this.handleChange}
+                          value={this.state.email}
+                        />
+                      </FormGroup>
+                      <FormGroup>
+                        <label>Password</label>
+                        <FormInputControl
+                          name="password"
+                          type="password"
+                          placeholder="Your password"
+                          onChange={this.handleChange}
+                          value={this.state.password}
                         />
                       </FormGroup>
                       <FormGroup>
                         <label>First Name</label>
                         <FormInputControl
+                          name="first_name"
                           type="text"
                           placeholder="Your first name"
+                          onChange={this.handleChange}
+                          value={this.state.first_name}
                         />
                       </FormGroup>
                       <FormGroup>
                         <label>Last Name</label>
                         <FormInputControl
+                          name="last_name"
                           type="text"
                           placeholder="Your last name"
+                          onChange={this.handleChange}
+                          value={this.state.last_name}
                         />
                       </FormGroup>
                       <FormGroup>
                         <label>Address</label>
                         <FormInputControl
-                          type="text-area"
+                          name="address"
+                          type="textarea"
                           placeholder="Your address"
+                          onChange={this.handleChange}
+                          value={this.state.address}
                         />
                       </FormGroup>
                       <FormGroup>
                         <label>City</label>
                         <FormInputControl
-                          type="text-area"
+                          name="city"
+                          type="text"
                           placeholder="Your city"
+                          onChange={this.handleChange}
+                          value={this.state.city}
                         />
                       </FormGroup>
                       <FormGroup>
                         <label>Province</label>
                         <FormInputControl
+                          name="province"
                           type="text-area"
                           placeholder="Your province"
+                          onChange={this.handleChange}
+                          value={this.state.province}
                         />
                       </FormGroup>
                       <FormGroup>
                         <label>Postal Code</label>
                         <FormInputControl
+                          name="postal_code"
                           type="number"
                           placeholder="Your postal code"
+                          onChange={this.handleChange}
+                          value={this.state.postal_code}
                         />
                       </FormGroup>
+                      <FormGroupCenter>
+                        <BtnLogin type="submit" value="Submit" />
+                      </FormGroupCenter>
                     </BoxForm>
                   </form>
                 </ColMd5>
