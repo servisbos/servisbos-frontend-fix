@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Alert } from "reactstrap";
 import styled from "styled-components";
 import { Redirect } from "react-router-dom";
 import Axios from "axios";
@@ -115,7 +116,7 @@ class Signup extends Component {
   state = {
     username: "",
     first_name: "",
-    last_name: "",
+    lastname: "",
     email: "",
     password: "",
     address: "",
@@ -135,11 +136,14 @@ class Signup extends Component {
     const response = await Axios.post("http://localhost:8000/api/auth/signup", {
       ...rest
     });
-    if (response.data === "Success") this.setState({ success: true });
+    if (response.status === 200){
+      this.setState({ success: true });
+    } 
     else console.log("Gagal Bro");
   };
   render() {
     return (
+      
       <Main>
         <BackgroundBlue>
           <Container>
@@ -163,7 +167,7 @@ class Signup extends Component {
                         />
                       </FormGroup>
                       <FormGroup>
-                        <label>Email</label>
+                        <label>Emai l</label>
                         <FormInputControl
                           name="email"
                           type="email"
@@ -195,7 +199,7 @@ class Signup extends Component {
                       <FormGroup>
                         <label>Last Name</label>
                         <FormInputControl
-                          name="last_name"
+                          name="lastname"
                           type="text"
                           placeholder="Your last name"
                           onChange={this.handleChange}

@@ -4,6 +4,11 @@ import Register from "./provider/component/Register";
 class App extends Component {
   render() {
     return <Register/>;
+
+class App extends Component {
+  render() {
+    return <Register/>;
+
   }
 }
 
