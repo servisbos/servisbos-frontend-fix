@@ -144,9 +144,9 @@ class Register extends Component {
                 <BackgroundBlue>
                     <Container>
                         <RegisterForm>
-                            <h1>
+                            <h2>
                                 <center>Register Provider to Servisbos</center>
-                            </h1>
+                            </h2>
 
                             <JustifyContent>
                                 <ColMd5>
