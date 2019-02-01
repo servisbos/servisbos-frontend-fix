@@ -1,12 +1,19 @@
-import React, { Component } from "react";
-import Header from "./provider/component/Header";
+import React, { Component, Fragment } from "react";
+import { Route, Redirect } from "react-router-dom";
+import Homepage from "./users/Components/Homepage";
+import Login from "./users/Components/Login";
+import Signup from "./users/Components/Signup";
+// import Header from "./provider/component/Header";
 
 class App extends Component {
   render() {
-    return <Header/>;
-
-
-
+    return (
+      <Fragment>
+      <Route path="/" exact component={Homepage} />
+      <Route path="/signin" component={Login} />
+      <Route path="/signup" component={Signup} />
+      </Fragment>
+    );
   }
 }
 
