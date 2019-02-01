@@ -1,125 +1,230 @@
 import React, { Component, Fragment } from "react";
+import Icon1 from "../../../assets/img/cuci-mobil.svg";
+import Icon2 from "../../../assets/img/nyuci-motor.svg";
+import Icon3 from "../../../assets/img/ganti-oli.svg";
+import Icon4 from "../../../assets/img/ganti-ban.svg";
+import Icon5 from "../../../assets/img/tuneup-car.svg";
 
-class Header extends Component {
+class Main extends Component {
   render() {
     return (
       <Fragment>
-        <header className="header_sticky">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-3 col-6">
-                <div id="">
-                  <h1>
-                    <a href="index.html" title="servisbos">
-                      Servisbos
-                    </a>
-                  </h1>
+        <div className="hero_home version_2">
+          <div className="content">
+            <h3>Servis Bos!</h3>
+            <p>
+              Ridiculus sociosqu cursus neque cursus curae ante scelerisque
+              vehicula.
+            </p>
+            <form method="post" action="list.html">
+              <div id="custom-search-input">
+                <div className="input-group">
+                  <input
+                    type="text"
+                    className=" search-query"
+                    placeholder="Ex. Name, Specialization ...."
+                  />
+                  <input
+                    type="submit"
+                    className="btn_search"
+                    defaultValue="Search"
+                  />
                 </div>
-              </div>
-              <nav className="col-lg-9 col-6">
-                <a
-                  className="cmn-toggle-switch cmn-toggle-switch__htx open_close"
-                  href="#0"
-                >
-                  <span>Menu mobile</span>
-                </a>
-                <ul id="top_access">
+                <ul>
                   <li>
-                    <a href="login.html">
-                      <i className="pe-7s-user" />
-                    </a>
+                    <input
+                      type="radio"
+                      id="all"
+                      name="radio_search"
+                      defaultValue="all"
+                      defaultChecked
+                    />
+                    <label htmlFor="all">All</label>
                   </li>
                   <li>
-                    <a href="register-doctor.html">
-                      <i className="pe-7s-add-user" />
-                    </a>
+                    <input
+                      type="radio"
+                      id="mechanic"
+                      name="radio_search"
+                      defaultValue="mechanic"
+                    />
+                    <label htmlFor="mechanic">Mechanic</label>
+                  </li>
+                  <li>
+                    <input
+                      type="radio"
+                      id="workshop"
+                      name="radio_search"
+                      defaultValue="workshop"
+                    />
+                    <label htmlFor="workshop">Workshop</label>
                   </li>
                 </ul>
-                <div className="main-menu">
-                  <ul>
-                    <li className="submenu">
-                      <a href="#0" className="show-submenu">
-                        Home
-                        <i className="icon-down-open-mini" />
-                      </a>
-                      <ul>
-                        <li>
-                          <a href="index.html">Home Default</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="submenu">
-                      <a href="#0" className="show-submenu">
-                        Pages
-                        <i className="icon-down-open-mini" />
-                      </a>
-                      <ul>
-                        <li>
-                          <a href="list.html">List page</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="submenu">
-                      <a href="#0" className="show-submenu">
-                        Extra Elements
-                        <i className="icon-down-open-mini" />
-                      </a>
-                      <ul>
-                        <li>
-                          <a href="detail-page-working-booking.html">
-                            Detail working booking
-                          </a>
-                        </li>
-                        <li>
-                          <a href="booking-page.html">Booking page</a>
-                        </li>
-                        <li>
-                          <a href="confirm.html">Confirm page</a>
-                        </li>
-                        <li>
-                          <a href="faq.html">Faq page</a>
-                        </li>
-                        <li>
-                          <a href="coming_soon/index.html">Coming soon</a>
-                        </li>
-                        <li>
-                          <a href="pricing-tables.html">
-                            Responsive pricing tables
-                          </a>
-                        </li>
-                        <li>
-                          <a href="pricing-tables-2.html">
-                            Responsive pricing tables 2
-                          </a>
-                        </li>
-                        <li>
-                          <a href="register-mechanic-working.html">
-                            Working mechanic register
-                          </a>
-                        </li>
-                        <li>
-                          <a href="icon-pack-1.html">Icon pack 1</a>
-                        </li>
-                        <li>
-                          <a href="icon-pack-2.html">Icon pack 2</a>
-                        </li>
-                        <li>
-                          <a href="icon-pack-3.html">Icon pack 3</a>
-                        </li>
-                        <li>
-                          <a href="404.html">404 page</a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </div>
-              </nav>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div className="container margin_120_95">
+          <div className="main_title">
+            <h2>
+              Discover the <strong>online</strong> appointment!
+            </h2>
+            <p>
+              Usu habeo equidem sanctus no. Suas summo id sed, erat erant
+              oporteat cu pri. In eum omnes molestie. Sed ad debet scaevola, ne
+              mel.
+            </p>
+          </div>
+          <div className="row add_bottom_30">
+            <div className="col-lg-4">
+              <div className="box_feat" id="icon_1">
+                <span />
+                <h3>Find a Mechanic</h3>
+                <p>
+                  Usu habeo equidem sanctus no. Suas summo id sed, erat erant
+                  oporteat cu pri. In eum omnes molestie.
+                </p>
+              </div>
+            </div>
+            <div className="col-lg-4">
+              <div className="box_feat" id="icon_2">
+                <span />
+                <h3>View profile</h3>
+                <p>
+                  Usu habeo equidem sanctus no. Suas summo id sed, erat erant
+                  oporteat cu pri. In eum omnes molestie.
+                </p>
+              </div>
+            </div>
+            <div className="col-lg-4">
+              <div className="box_feat" id="icon_3">
+                <h3>Book a mechanic</h3>
+                <p>
+                  Usu habeo equidem sanctus no. Suas summo id sed, erat erant
+                  oporteat cu pri. In eum omnes molestie.
+                </p>
+              </div>
             </div>
           </div>
-        </header>
+          {/* End row */}
+          <p className="text-center">
+            <a href="list.html" className="btn_1 medium">
+              Find Mechanic
+            </a>
+          </p>
+        </div>
+        {/* End container */}
+
+        <div className="container margin_120_95">
+          <div className="main_title">
+            <h2>Find by specialization</h2>
+            <p>
+              Nec graeci sadipscing disputationi ne, mea ea nonumes percipitur.
+              Nonumy ponderum oporteat cu mel, pro movet cetero at.
+            </p>
+          </div>
+          <div className="row">
+            <div className="col-lg-4 col-md-6">
+              <a href="list.html" className="box_cat_home">
+                <i className="icon-info-4" />
+                <img src={Icon1} width={100} height={100} alt="" />
+                <h3>Car Wash</h3>
+                <ul className="clearfix">
+                  <li>
+                    <strong>124</strong>Mechanics
+                  </li>
+                  <li>
+                    <strong>60</strong>Workshops
+                  </li>
+                </ul>
+              </a>
+            </div>
+            <div className="col-lg-4 col-md-6">
+              <a href="list.html" className="box_cat_home">
+                <i className="icon-info-4" />
+                <img src={Icon2} width={100} height={100} alt="" />
+                <h3>Motorcycle Wash</h3>
+                <ul className="clearfix">
+                  <li>
+                    <strong>124</strong>Mechanics
+                  </li>
+                  <li>
+                    <strong>60</strong>Workshops
+                  </li>
+                </ul>
+              </a>
+            </div>
+            <div className="col-lg-4 col-md-6">
+              <a href="list.html" className="box_cat_home">
+                <i className="icon-info-4" />
+                <img src={Icon3} width={100} height={100} alt="" />
+                <h3>Oil Change</h3>
+                <ul className="clearfix">
+                  <li>
+                    <strong>124</strong>Mechanics
+                  </li>
+                  <li>
+                    <strong>60</strong>Workshops
+                  </li>
+                </ul>
+              </a>
+            </div>
+            <div className="col-lg-6 col-md-6">
+              <a href="list.html" className="box_cat_home">
+                <i className="icon-info-4" />
+                <img src={Icon4} width={120} height={120} alt="" />
+                <h3>Tyres Change</h3>
+                <ul className="clearfix">
+                  <li>
+                    <strong>124</strong>Mechanics
+                  </li>
+                  <li>
+                    <strong>60</strong>Workshops
+                  </li>
+                </ul>
+              </a>
+            </div>
+            <div className="col-lg-6 col-md-6">
+              <a href="list.html" className="box_cat_home">
+                <i className="icon-info-4" />
+                <img src={Icon5} width={120} height={120} alt="" />
+                <h3>Machine Tuneup</h3>
+                <ul className="clearfix">
+                  <li>
+                    <strong>124</strong>Mechanics
+                  </li>
+                  <li>
+                    <strong>60</strong>Workshops
+                  </li>
+                </ul>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div id="app_section">
+          <div className="container">
+            <div className="row justify-content-around">
+              <div className="agileinfo-subscribe-grid text-center">
+                <img src="images/mail.png" alt="" />
+                <h4>stay upto date with our newsletter!</h4>
+                <p>Sign up to recieve info on upcoming services and more.</p>
+                <form action="#" method="post">
+                  <input
+                    type="email"
+                    placeholder="Enter your email.."
+                    name="Subscribe"
+                    required=""
+                  />
+                  <button className="btn1">sign up</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
       </Fragment>
     );
   }
 }
 
-export default Header;
+export default Main;

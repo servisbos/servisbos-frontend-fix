@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { Link } from "react-router-dom";
 
 class Header extends Component {
   render() {
@@ -25,9 +26,9 @@ class Header extends Component {
                 </a>
                 <ul id="top_access">
                   <li>
-                    <a href="login.html">
+                    <Link to="/signin">
                       <i className="pe-7s-user" />
-                    </a>
+                    </Link>
                   </li>
                   <li>
                     <a href="register-doctor.html">
@@ -61,53 +62,12 @@ class Header extends Component {
                     </li>
                     <li className="submenu">
                       <a href="#0" className="show-submenu">
-                        Extra Elements
+                        About
                         <i className="icon-down-open-mini" />
                       </a>
                       <ul>
                         <li>
-                          <a href="detail-page-working-booking.html">
-                            Detail working booking
-                          </a>
-                        </li>
-                        <li>
-                          <a href="booking-page.html">Booking page</a>
-                        </li>
-                        <li>
-                          <a href="confirm.html">Confirm page</a>
-                        </li>
-                        <li>
-                          <a href="faq.html">Faq page</a>
-                        </li>
-                        <li>
-                          <a href="coming_soon/index.html">Coming soon</a>
-                        </li>
-                        <li>
-                          <a href="pricing-tables.html">
-                            Responsive pricing tables
-                          </a>
-                        </li>
-                        <li>
-                          <a href="pricing-tables-2.html">
-                            Responsive pricing tables 2
-                          </a>
-                        </li>
-                        <li>
-                          <a href="register-mechanic-working.html">
-                            Working mechanic register
-                          </a>
-                        </li>
-                        <li>
-                          <a href="icon-pack-1.html">Icon pack 1</a>
-                        </li>
-                        <li>
-                          <a href="icon-pack-2.html">Icon pack 2</a>
-                        </li>
-                        <li>
-                          <a href="icon-pack-3.html">Icon pack 3</a>
-                        </li>
-                        <li>
-                          <a href="404.html">404 page</a>
+                          <a href="#">How We Work</a>
                         </li>
                       </ul>
                     </li>

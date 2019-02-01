@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 
-import Logo from "../assets/img/logo.png";
 class Footer extends Component {
   render() {
     return (

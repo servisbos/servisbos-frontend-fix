@@ -3,8 +3,6 @@ import Header from "../Header";
 import ContentHomepage from "../ContentHomepage";
 import Footer from "../Footer";
 
-import "./App.css";
-
 class Homepage extends Component {
   render() {
     return (
