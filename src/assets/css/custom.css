@@ -1,0 +1,85 @@
+/*============================================================================================*/
+/* Your custom styles below */
+/*============================================================================================*/
+.footer-grid1 h4,
+.agileinfo-subscribe-grid h4,
+.blog-text h5 {
+  color: #00b6fe;
+  font-weight: 600;
+  font-size: 26px;
+  margin-bottom: 25px;
+  text-transform: capitalize;
+}
+
+.agileinfo-subscribe-grid h4 {
+  display: inline;
+}
+.agileinfo-subscribe-grid p {
+  color: #fff;
+  font-weight: 600;
+  font-size: 19px;
+}
+.agileinfo-subscribe-grid img {
+  width: 8%;
+}
+
+.agileinfo-subscribe-grid input[type="email"] {
+  display: inline-block;
+  background: #ffffff;
+  border: none;
+  width: 71%;
+  outline: none;
+  padding: 15px;
+  font-size: 1em;
+  color: #000;
+  letter-spacing: 1px;
+}
+
+.agileinfo-subscribe-grid i.fa.fa-paper-plane-o {
+  color: #ffffff !important;
+  font-size: 1.2em !important;
+}
+
+.agileinfo-subscribe-grid form {
+  width: 60%;
+  margin: 30px auto 0;
+}
+
+.agileinfo-subscribe-grid button.btn1 {
+  color: #ffffff;
+  font-size: 1em;
+  width: 28%;
+  letter-spacing: 1px;
+  border: none;
+  outline: none;
+  padding: 15px;
+  text-transform: uppercase;
+  text-align: center;
+  text-decoration: none;
+  background: #031f9a;
+  transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+  -ms-transition: 0.5s all;
+}
+
+.agileinfo-subscribe-grid {
+  border: solid hsl(224, 80%, 76%);
+  border-width: 0px 4px 0px;
+  border-radius: 10px;
+  padding: 20px 0 40px;
+  background: rgba(0, 0, 0, 0.51);
+}
+.footer-grid1 h4,
+.agileinfo-subscribe-grid h4,
+.blog-text h5 {
+  font-size: 19px;
+}
+.agileinfo-subscribe-grid {
+  padding: 20px 5px 40px;
+}
+.agileinfo-subscribe-grid input[type="email"],
+.agileinfo-subscribe-grid button.btn1 {
+  width: 90%;
+}

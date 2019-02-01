@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Header from "./workers/component/Header";
+import Signup from "./users/Components/Signup";
 
 class App extends Component {
   render() {
-    return <Header />;
+    return <Signup />;
   }
 }
 
