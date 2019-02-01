@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Register from "./provider/component/Register";
+import Header from "./provider/component/Header";
 
 class App extends Component {
   render() {
-    return <Register/>;
+    return <Header/>;
 
 
 
