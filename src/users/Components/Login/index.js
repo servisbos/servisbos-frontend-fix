@@ -1,9 +1,37 @@
 import React, { Component, Fragment } from "react";
-import styled from "styled-components";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { signIn } from "../../../store/actions/auth";
 import { Link } from "react-router-dom";
 
 class Login extends Component {
+  state = {
+    username: "",
+    password: ""
+  };
+
+  componentDidMount() {
+    if (this.props.isSignUpSuccess) {
+      this.props.setSignUpStatus(false);
+    }
+  }
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleSubmit = async e => {
+    e.preventDefault();
+
+    this.props.signIn(this.state);
+  };
   render() {
+    const { password, username } = this.state;
+    const { isAuthenticated } = this.props;
+
+    if (isAuthenticated) {
+      return <Redirect to="/" />;
+    }
     return (
       <Fragment>
         <div className="bg_color_2">
@@ -11,24 +39,27 @@ class Login extends Component {
             <div id="login">
               <h1>Please login to Servisbos</h1>
               <div className="box_form">
-                <form>
+                <form onSubmit={this.handleSubmit}>
                   <div className="form-group">
                     <input
-                      type="email"
+                      name="username"
+                      type="username"
                       className="form-control"
-                      placeholder="Your email address"
+                      placeholder="Your username"
+                      value={username}
+                      onChange={this.handleChange}
                     />
                   </div>
                   <div className="form-group">
                     <input
+                      name="password"
                       type="password"
                       className="form-control"
                       placeholder="Your password"
+                      value={password}
+                      onChange={this.handleChange}
                     />
                   </div>
-                  <a href="#0">
-                    <small>Forgot password?</small>
-                  </a>
                   <div className="form-group text-center add_top_20">
                     <input
                       className="btn_1 medium"
@@ -51,5 +82,10 @@ class Login extends Component {
     );
   }
 }
-
-export default Login;
+const mapStateToProps = store => ({
+  isAuthenticated: store.auth.isAuthenticated
+});
+export default connect(
+  mapStateToProps,
+  { signIn }
+)(Login);
