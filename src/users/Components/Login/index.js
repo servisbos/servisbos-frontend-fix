@@ -30,7 +30,7 @@ class Login extends Component {
     const { isAuthenticated } = this.props;
 
     if (isAuthenticated) {
-      return <Redirect to="/dashboard_user" />;
+      return <Redirect to="/user/dashboard" />;
     }
     return (
       <Fragment>

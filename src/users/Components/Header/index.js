@@ -31,9 +31,9 @@ class Header extends Component {
                     </Link>
                   </li>
                   <li>
-                    <a href="register-doctor.html">
+                    <Link to="/signin_provider">
                       <i className="pe-7s-add-user" />
-                    </a>
+                    </Link>
                   </li>
                 </ul>
                 <div className="main-menu">
@@ -45,7 +45,7 @@ class Header extends Component {
                       </a>
                       <ul>
                         <li>
-                          <a href="index.html">Home Default</a>
+                          <Link to="/">Home </Link>
                         </li>
                       </ul>
                     </li>

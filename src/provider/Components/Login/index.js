@@ -1,166 +1,91 @@
-import React, { Component } from "react";
-import styled from "styled-components";
+import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
+import { Redirect } from "react-router-dom";
+import { signIn } from "../../../store/actions/auth";
+import { Link } from "react-router-dom";
 
-const StyledMain = styled.div`
-  background: #f5f8fa;
-  position: relative;
-  z-index: 1;
-`;
-const BackgroundColor = styled.div`
-  background: #3f4079;
-`;
-const MarginContainer = styled.div`
-  width: 100%;
-  padding-top: 60px;
-  padding-bottom: 35px;
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-`;
-const FormLogin = styled.div`
-  width: 650px;
-  margin: 60px auto;
-  color: #fff;
-`;
+class LoginProvider extends Component {
+  state = {
+    username: "",
+    password: ""
+  };
 
-const BoxForm = styled.div`
-  height: 250px;
-  background-color: #fff;
-  padding: 30px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -ms-border-radius: 5px;
-  border-radius: 5px;
-  -webkit-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.3);
-  margin-bottom: 25px;
-  color: #fff;
-`;
-
-const BoxLogin = styled.div`
-  width: 40%;
-  float: left;
-  border-right: 1px solid #e1e8ed;
-  padding: 15px 25px;
-`;
-const BoxLoginLast = styled.div`
-  float: left;
-  border-right: 1px solid #e1e8ed;
-  padding: 15px 25px;
-  border-right: 0;
-`;
-
-const FormGroup = styled.div`
-  margin-bottom: 25px;
-`;
-
-const InputGroup = styled.input`
-    display: block;
-    width: 100%;
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #495057;
-    background-color: #fff;
-    background-clip: padding-box;
-    border: 1px solid #ced4da;
-    border-radius: .25rem;
-    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
-}
-`;
-const ButtonLogin = styled.input`
-  border: none;
-  color: #fff;
-  background: #e74e84;
-  cursor: pointer;
-  padding: 7px 20px;
-  display: inline-block;
-  outline: none;
-  font-size: 14px;
-  font-size: 0.875rem;
-`;
-
-const AnchorFacebook = styled.a`
-  border-radius: 3px;
-  text-align: center;
-  color: #fff;
-  min-width: 200px;
-  margin-bottom: 15px;
-  display: block;
-  padding: 12px;
-  line-height: 1;
-  position: relative;
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-  background-color: #3b5998;
-`;
-const AnchorGoogle = styled.a`
-  border-radius: 3px;
-  text-align: center;
-  color: #fff;
-  min-width: 200px;
-  margin-bottom: 15px;
-  display: block;
-  padding: 12px;
-  line-height: 1;
-  position: relative;
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-  background-color: #dc4e41;
-`;
-const AnchorLinkedin = styled.a`
-  border-radius: 3px;
-  text-align: center;
-  color: #fff;
-  min-width: 200px;
-  margin-bottom: 15px;
-  display: block;
-  padding: 12px;
-  line-height: 1;
-  position: relative;
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-  background-color: #0077b5;
-`;
-class Login extends Component {
-    render() {
-        return (
-            <StyledMain>
-                <BackgroundColor>
-                    <MarginContainer>
-                        <FormLogin>
-                            <h2>Login Providers to Servisbos</h2>
-                            <form>
-                                <BoxForm>
-                                    <BoxLogin>
-                                        <AnchorFacebook>Login with Facebook</AnchorFacebook>
-                                        <AnchorGoogle>Login with Google</AnchorGoogle>
-                                        <AnchorLinkedin>Login with Linkedin</AnchorLinkedin>
-                                    </BoxLogin>
-                                    <BoxLoginLast>
-                                        <FormGroup>
-                                            <InputGroup
-                                                type="email"
-                                                placeholder="Your email address"
-                                            />
-                                        </FormGroup>
-                                        <FormGroup>
-                                            <InputGroup type="password" placeholder="Your password" />
-                                        </FormGroup>
-                                        <FormGroup>
-                                            <ButtonLogin type="submit" value="Login" />
-                                        </FormGroup>
-                                    </BoxLoginLast>
-                                </BoxForm>
-                            </form>
-                        </FormLogin>
-                    </MarginContainer>
-                </BackgroundColor>
-            </StyledMain>
-        );
+  componentDidMount() {
+    if (this.props.isSignUpSuccess) {
+      this.props.setSignUpStatus(false);
     }
-}
+  }
 
-export default Login;
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleSubmit = async e => {
+    e.preventDefault();
+
+    this.props.signIn(this.state);
+  };
+  render() {
+    const { password, username } = this.state;
+    const { isAuthenticated } = this.props;
+
+    if (isAuthenticated) {
+      return <Redirect to="/provider/dashboard" />;
+    }
+    return (
+      <Fragment>
+        <div className="bg_color_2">
+          <div className="container margin_60_35">
+            <div id="login">
+              <h1>Please login to Servisbos</h1>
+              <div className="box_form">
+                <form onSubmit={this.handleSubmit}>
+                  <div className="form-group">
+                    <input
+                      name="username"
+                      type="username"
+                      className="form-control"
+                      placeholder="Your username"
+                      value={username}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      name="password"
+                      type="password"
+                      className="form-control"
+                      placeholder="Your password"
+                      value={password}
+                      onChange={this.handleChange}
+                    />
+                  </div>
+                  <div className="form-group text-center add_top_20">
+                    <input
+                      className="btn_1 medium"
+                      type="submit"
+                      defaultValue="Login"
+                    />
+                  </div>
+                </form>
+              </div>
+              <p className="text-center link_bright">
+                Do not have an account yet?{" "}
+                <Link to="/provider/signup">
+                  <strong>Register now!</strong>
+                </Link>
+              </p>
+            </div>
+          </div>
+        </div>
+      </Fragment>
+    );
+  }
+}
+const mapStateToProps = store => ({
+  isAuthenticated: store.auth.isAuthenticated
+});
+export default connect(
+  mapStateToProps,
+  { signIn }
+)(LoginProvider);
