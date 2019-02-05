@@ -6,6 +6,25 @@ import Icon4 from "../../../assets/img/ganti-ban.svg";
 import Icon5 from "../../../assets/img/tuneup-car.svg";
 
 class Main extends Component {
+  state = {
+    keyword: ""
+  };
+
+  componentDidMount() {
+    if (this.props.isSignUpSuccess) {
+      this.props.setSignUpStatus(false);
+    }
+  }
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleSubmit = async e => {
+    e.preventDefault();
+
+    this.props.signIn(this.state);
+  };
   render() {
     return (
       <Fragment>
@@ -16,13 +35,16 @@ class Main extends Component {
               Ridiculus sociosqu cursus neque cursus curae ante scelerisque
               vehicula.
             </p>
-            <form method="post" action="list.html">
+            <form onSubmit={this.handleSubmit}>
               <div id="custom-search-input">
                 <div className="input-group">
                   <input
+                    name="keyword"
                     type="text"
                     className=" search-query"
                     placeholder="Ex. Name, Specialization ...."
+                    value={this.state.keywoard}
+                    onChange={this.handleChange}
                   />
                   <input
                     type="submit"
@@ -30,36 +52,6 @@ class Main extends Component {
                     defaultValue="Search"
                   />
                 </div>
-                <ul>
-                  <li>
-                    <input
-                      type="radio"
-                      id="all"
-                      name="radio_search"
-                      defaultValue="all"
-                      defaultChecked
-                    />
-                    <label htmlFor="all">All</label>
-                  </li>
-                  <li>
-                    <input
-                      type="radio"
-                      id="mechanic"
-                      name="radio_search"
-                      defaultValue="mechanic"
-                    />
-                    <label htmlFor="mechanic">Mechanic</label>
-                  </li>
-                  <li>
-                    <input
-                      type="radio"
-                      id="workshop"
-                      name="radio_search"
-                      defaultValue="workshop"
-                    />
-                    <label htmlFor="workshop">Workshop</label>
-                  </li>
-                </ul>
               </div>
             </form>
           </div>

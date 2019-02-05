@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
-import "../../../assets/css/admin.css";
+// import "../../../assets/css/admin.css";
+import { Route } from "react-router-dom";
 import NavbarDashboard from "../NavbarDashboard";
 import IndexDashboard from "../IndexDashboard";
 
@@ -7,10 +8,18 @@ class DashboardUser extends Component {
   render() {
     return (
       <Fragment>
-        <body className="fixed-nav sticky-footer" id="page-top">
+        <div className="fixed-nav sticky-footer" id="page-top">
           <NavbarDashboard />
-          <IndexDashboard />
-        </body>
+          <Route
+            exact
+            path={`${this.props.match.path}/`}
+            component={IndexDashboard}
+          />
+          {/* <Route
+            path={`${this.props.match.path}/request`}
+            component={ListProvider}
+          /> */}
+        </div>
       </Fragment>
     );
   }

@@ -1,8 +1,16 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { fetchServiceTypes } from "../../../store/actions/service_types";
 
-class Header extends Component {
+class HeaderDashboard extends Component {
+  componentDidMount() {
+    this.props.fetchServiceTypes();
+  }
   render() {
+    const { service_types } = this.props;
+    console.log(service_types);
+
     return (
       <Fragment>
         <header className="header_sticky">
@@ -11,28 +19,29 @@ class Header extends Component {
               <div className="col-lg-3 col-6">
                 <div id="">
                   <h1>
-                    <Link to="/" title="servisbos">
+                    <Link to="/dashboard/user" title="servisbos">
                       Servisbos
                     </Link>
                   </h1>
                 </div>
               </div>
               <nav className="col-lg-9 col-6">
-                <Link
+                <a
                   className="cmn-toggle-switch cmn-toggle-switch__htx open_close"
-                  to="#0"
+                  href="#0"
                 >
                   <span>Menu mobile</span>
-                </Link>
+                </a>
                 <ul id="top_access">
-                  <li>
-                    <Link to="/signin">
-                      <i className="pe-7s-user" />
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/signin_provider">
-                      <i className="pe-7s-add-user" />
+                  <li id="user">
+                    <Link to="/">
+                      <figure>
+                        <img
+                          src="http://via.placeholder.com/150x150.jpg"
+                          alt="avatar"
+                        />
+                      </figure>
+                      Yusuf Habibi
                     </Link>
                   </li>
                 </ul>
@@ -45,20 +54,18 @@ class Header extends Component {
                       </a>
                       <ul>
                         <li>
-                          <Link to="/">Home </Link>
+                          <Link to="/user/dashboard">Home </Link>
                         </li>
                       </ul>
                     </li>
                     <li className="submenu">
-                      <a href="#0" className="show-submenu">
-                        Pages
+                      <Link
+                        to="/user/dashboard/list_provider"
+                        className="show-submenu"
+                      >
+                        Services
                         <i className="icon-down-open-mini" />
-                      </a>
-                      <ul>
-                        <li>
-                          <a href="list.html">List page</a>
-                        </li>
-                      </ul>
+                      </Link>
                     </li>
                     <li className="submenu">
                       <a href="#0" className="show-submenu">
@@ -81,5 +88,10 @@ class Header extends Component {
     );
   }
 }
-
-export default Header;
+const mapStateToProps = store => ({
+  service_types: store.service_types
+});
+export default connect(
+  mapStateToProps,
+  { fetchServiceTypes }
+)(HeaderDashboard);

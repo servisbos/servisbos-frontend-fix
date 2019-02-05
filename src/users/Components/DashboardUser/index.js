@@ -1,24 +1,29 @@
 import React, { Component, Fragment } from "react";
+import HeaderDashboard from "../HeaderDashboard";
+import ContentHomepage from "../ContentHomepage";
+import ListProvider from "../ListProvider";
+
+import Footer from "../Footer";
 import { Route } from "react-router-dom";
-import "../../../assets/css/admin.css";
-import NavbarDashboard from "../NavbarDashboard";
-import IndexDashboard from "../IndexDashboard";
 
 class DashboardUser extends Component {
   render() {
     return (
       <Fragment>
-        <div className="fixed-nav sticky-footer" id="page-top">
-          <NavbarDashboard />
+        <div className="App">
+          {/* <div className="layer" /> */}
+          <HeaderDashboard />
           <Route
             exact
             path={`${this.props.match.path}/`}
-            component={IndexDashboard}
+            component={ContentHomepage}
           />
           <Route
-            path={`${this.props.match.path}/hello`}
-            render={() => <h1>Hello</h1>}
+            path={`${this.props.match.path}/list_provider`}
+            component={ListProvider}
           />
+          <Footer />
+          <div id="toTop" />
         </div>
       </Fragment>
     );

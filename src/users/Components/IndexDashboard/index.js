@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import "../../../assets/css/admin.css";
+// import "../../../assets/css/admin.css";
 class IndexDashboard extends Component {
   render() {
     return (

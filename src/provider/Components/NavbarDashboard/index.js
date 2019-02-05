@@ -1,5 +1,4 @@
-import { Navbar, Nav, NavItem, Button, Glyphicon } from "react-bootstrap";
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import "../../../assets/css/admin.css";
 import "../../../assets/vendor/font-awesome/css/font-awesome.min.css";
 import { Link } from "react-router-dom";
@@ -11,9 +10,9 @@ class NavbarDashboard extends Component {
         className="navbar navbar-expand-lg navbar-dark bg-default fixed-top"
         id="mainNav"
       >
-        <a className="navbar-brand" href="index.html">
-          <img src="/" data-retina="true" width={163} height={36} />
-        </a>
+        <Link className="navbar-brand" href="index.html">
+          <img src="/" alt="test" data-retina="true" width={163} height={36} />
+        </Link>
         <button
           className="navbar-toggler navbar-toggler-right"
           type="button"
@@ -55,10 +54,10 @@ class NavbarDashboard extends Component {
               data-placement="right"
               title="Reviews"
             >
-              <a className="nav-link" href="reviews.html">
+              <Link className="nav-link" to="/">
                 <i className="fa fa-fw fa-star" />
                 <span className="nav-link-text">Reviews</span>
-              </a>
+              </Link>
             </li>
             <li
               className="nav-item"
