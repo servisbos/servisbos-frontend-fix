@@ -2,9 +2,11 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../../store/actions/auth";
+import ReactFilestack, { client } from "filestack-react";
 
 class Signup extends Component {
   state = {
+    image: "",
     username: "",
     first_name: "",
     lastname: "",
@@ -27,8 +29,16 @@ class Signup extends Component {
 
     this.props.signUp(this.state);
   };
+  handleSuccess = result => {
+    const imageUrl = result.filesUploaded[0].url;
+    console.log(imageUrl);
+
+    this.setState({ image: imageUrl });
+  };
+
   render() {
     const {
+      image,
       first_name,
       lastname,
       username,
@@ -61,6 +71,27 @@ class Signup extends Component {
                 <div className="col-md-5">
                   <form onSubmit={this.handleSubmit}>
                     <div className="box_form">
+                      <div className="form-group">
+                        <label>Your Photo Profile</label>
+                        <input
+                          type="hidden"
+                          name="user_type"
+                          value={user_type}
+                        />{" "}
+                        <br />
+                        <ReactFilestack
+                          apikey={process.env.REACT_APP_FILESTACK_API_KEY}
+                          buttonText="Pick Image"
+                          buttonClass="upload-image-btn"
+                          options={{
+                            accept: "image/*",
+                            storeTo: {
+                              location: "s3"
+                            }
+                          }}
+                          onSuccess={this.handleSuccess}
+                        />
+                      </div>
                       <div className="form-group">
                         <label>First Name</label>
                         <input
