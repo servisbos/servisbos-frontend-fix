@@ -18,7 +18,7 @@ class ListProvider extends Component {
             <div className="row">
               <div className="col-md-6">
                 <h4>
-                  <strong>Showing 10</strong> of 140 results
+                  <strong>Showing 0</strong> of 3 results
                 </h4>
               </div>
               <div className="col-md-6">
@@ -89,7 +89,7 @@ class ListProvider extends Component {
                   </div>
                 ))}
               </div>
-              <nav aria-label className="add_top_20">
+              <nav>
                 <ul className="pagination pagination-sm">
                   <li className="page-item disabled">
                     <a className="page-link" href="#" tabIndex={-1}>
