@@ -35,6 +35,7 @@ class Signup extends Component {
 
     this.setState({ image: imageUrl });
   };
+
   render() {
     const {
       image,
