@@ -26,12 +26,12 @@ class Header extends Component {
                 </Link>
                 <ul id="top_access">
                   <li>
-                    <Link to="/signin">
+                    <Link to="/user/signin">
                       <i className="pe-7s-user" />
                     </Link>
                   </li>
                   <li>
-                    <Link to="/signin_provider">
+                    <Link to="/provider/signin">
                       <i className="pe-7s-add-user" />
                     </Link>
                   </li>

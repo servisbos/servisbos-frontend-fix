@@ -13,8 +13,8 @@ class App extends Component {
     return (
       <Fragment>
         <Route path="/" exact component={Homepage} />
-        <Route path="/signin" component={Login} />
-        <Route path="/signup" component={Signup} />
+        <Route path="/user/signin" component={Login} />
+        <Route path="/user/signup" component={Signup} />
         <Route path="/user/dashboard" component={DashboardUser} />
         <Route path="/provider/signin" component={SignInProvider} />
         <Route path="/provider/signup" component={SignUpProvider} />
