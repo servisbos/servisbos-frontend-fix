@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { Route } from "react-router-dom";
 import Homepage from "./users/Components/Homepage";
-import Login from "./users/Components/Login";
+import Login from "./users/Components/SignIn";
 import Signup from "./users/Components/Signup";
 import DashboardUser from "./users/Components/DashboardUser";
 import SignInProvider from "./provider/Components/Login";
@@ -13,8 +13,8 @@ class App extends Component {
     return (
       <Fragment>
         <Route path="/" exact component={Homepage} />
-        <Route path="/signin" component={Login} />
-        <Route path="/signup" component={Signup} />
+        <Route path="/user/signin" component={Login} />
+        <Route path="/user/signup" component={Signup} />
         <Route path="/user/dashboard" component={DashboardUser} />
         <Route path="/provider/signin" component={SignInProvider} />
         <Route path="/provider/signup" component={SignUpProvider} />

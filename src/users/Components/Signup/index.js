@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { signUp } from "../../../store/actions/auth";
-import ReactFilestack, { client } from "filestack-react";
+import ReactFilestack from "filestack-react";
 
 class Signup extends Component {
   state = {
@@ -29,6 +29,7 @@ class Signup extends Component {
 
     this.props.signUp(this.state);
   };
+
   handleSuccess = result => {
     const imageUrl = result.filesUploaded[0].url;
     console.log(imageUrl);
