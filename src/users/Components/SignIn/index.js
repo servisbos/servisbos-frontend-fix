@@ -71,7 +71,7 @@ class Login extends Component {
               </div>
               <p className="text-center link_bright">
                 Do not have an account yet?{" "}
-                <Link to="/signup">
+                <Link to="/user/signup">
                   <strong>Register now!</strong>
                 </Link>
               </p>
