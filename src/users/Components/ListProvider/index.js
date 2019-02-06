@@ -3,13 +3,33 @@ import { Link } from "react-router-dom";
 // import "../../../assets/css/admin.css";
 
 import { connect } from "react-redux";
-import { fetchUserServiceTypes } from "../../../store/actions/user_service_type";
+import {
+  fetchUserServiceTypes,
+  fetchUserServiceBySpecialization
+} from "../../../store/actions/user_service_type";
 
 class ListProvider extends Component {
+  state = {
+    keyword: ""
+  };
   componentDidMount() {
     this.props.fetchUserServiceTypes();
   }
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleClickBooking = (id_user, id_service_type) => {
+    console.log("Masuk pak", id_user, id_service_type);
+  };
+
+  handleSubmit = async e => {
+    e.preventDefault();
+    if (this.state.keyword == "") this.props.fetchUserServiceTypes();
+    else this.props.fetchUserServiceBySpecialization(this.state);
+  };
   render() {
+    const { keyword } = this.state;
     const { user_service_types } = this.props;
     return (
       <main>
@@ -23,16 +43,48 @@ class ListProvider extends Component {
               </div>
               <div className="col-md-6">
                 <div className="search_bar_list">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Ex. Specialist"
-                  />
-                  <input type="submit" defaultValue="Search" />
+                  <form onSubmit={this.handleSubmit}>
+                    <input
+                      type="text"
+                      name="keyword"
+                      className="form-control"
+                      placeholder="Ex. Specialist"
+                      value={keyword}
+                      onChange={this.handleChange}
+                    />
+                    <input type="submit" defaultValue="Search" />
+                  </form>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <div className="filters_listing">
+          <div className="container">
+            <ul className="clearfix">
+              <li>
+                <h6>Type</h6>
+                <div className="switch-field">
+                  <input
+                    type="radio"
+                    id="all"
+                    name="type_patient"
+                    defaultValue="all"
+                    defaultChecked
+                  />
+                  <label htmlFor="all">All</label>
+                  <input
+                    type="radio"
+                    id="providers"
+                    name="type_patient"
+                    defaultValue="providers"
+                  />
+                  <label htmlFor="providers">Providers</label>
+                </div>
+              </li>
+            </ul>
+          </div>
+          {/* /container */}
         </div>
         <div className="container margin_60_35">
           <div className="row">
@@ -55,8 +107,8 @@ class ListProvider extends Component {
                         </a>
                       </figure>
                       <div className="wrapper">
-                        <small>{user_service_type.id_service_type}</small>
-                        <h3>{user_service_type.id_user}</h3>
+                        <small>{user_service_type.id_services_type}</small>
+                        <h3>{user_service_type.id_users}</h3>
                         <p>{user_service_type.price}</p>
                         <span className="rating">
                           <i className="icon_star voted" />
@@ -81,8 +133,20 @@ class ListProvider extends Component {
                         </a>
                       </div>
                       <ul>
+                        <li />
+                        <li />
                         <li>
-                          <Link to="/">Book now</Link>
+                          <Link
+                            to="/user/dashboard/detail_page"
+                            // onClick={() =>
+                            //   this.handleClickBooking(
+                            //     user_service_type.id_users,
+                            //     user_service_type.id_services_type
+                            //   )
+                            // }
+                          >
+                            Book now
+                          </Link>
                         </li>
                       </ul>
                     </div>
@@ -119,9 +183,6 @@ class ListProvider extends Component {
                 </ul>
               </nav>
             </div>
-            <aside className="col-lg-4" id="sidebar">
-              <div id="map_listing" className="normal_list" />
-            </aside>
           </div>
         </div>
       </main>
@@ -133,5 +194,5 @@ const mapStateToProps = store => ({
 });
 export default connect(
   mapStateToProps,
-  { fetchUserServiceTypes }
+  { fetchUserServiceTypes, fetchUserServiceBySpecialization }
 )(ListProvider);

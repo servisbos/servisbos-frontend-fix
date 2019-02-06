@@ -1,9 +1,8 @@
-import { FETCH_USER_SERVICE_TYPES } from "../types";
-import { FETCH_USER_SERVICE_TYPES_BY_SPECIALIZATION } from "../types";
+import { REDIRECT_TO_BOOKING_PAGE } from "../types";
 import Axios from "axios";
 import Cookies from "js-cookie";
 
-export const fetchUserServiceTypes = () => dispatch => {
+export const fetchDataToBookingPage = () => dispatch => {
   const token = Cookies.get("token");
   Axios.get("http://localhost:8000/api/user_service_type")
     .then(({ data: { userservicetype } }) => {

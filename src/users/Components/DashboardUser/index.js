@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import HeaderDashboard from "../HeaderDashboard";
 import ContentHomepage from "../ContentHomepage";
 import ListProvider from "../ListProvider";
+import DetailPage from "../DetailPage";
 
 import Footer from "../Footer";
 import { Route } from "react-router-dom";
@@ -21,6 +22,10 @@ class DashboardUser extends Component {
           <Route
             path={`${this.props.match.path}/list_provider`}
             component={ListProvider}
+          />
+          <Route
+            path={`${this.props.match.path}/detail_page`}
+            component={DetailPage}
           />
           <Footer />
           <div id="toTop" />
