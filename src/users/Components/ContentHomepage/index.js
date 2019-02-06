@@ -1,4 +1,7 @@
 import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
+import { signIn } from "../../../store/actions/auth";
+
 import Icon1 from "../../../assets/img/cuci-mobil.svg";
 import Icon2 from "../../../assets/img/nyuci-motor.svg";
 import Icon3 from "../../../assets/img/ganti-oli.svg";

@@ -1,16 +1,8 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import { fetchServiceTypes } from "../../../store/actions/service_types";
 
 class HeaderDashboard extends Component {
-  componentDidMount() {
-    this.props.fetchServiceTypes();
-  }
   render() {
-    const { service_types } = this.props;
-    console.log(service_types);
-
     return (
       <Fragment>
         <header className="header_sticky">
@@ -64,7 +56,6 @@ class HeaderDashboard extends Component {
                         className="show-submenu"
                       >
                         Services
-                        <i className="icon-down-open-mini" />
                       </Link>
                     </li>
                     <li className="submenu">
@@ -88,10 +79,4 @@ class HeaderDashboard extends Component {
     );
   }
 }
-const mapStateToProps = store => ({
-  service_types: store.service_types
-});
-export default connect(
-  mapStateToProps,
-  { fetchServiceTypes }
-)(HeaderDashboard);
+export default HeaderDashboard;
