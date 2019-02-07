@@ -48,28 +48,7 @@ class NavbarDashboard extends Component {
                 <span className="nav-link-text">Request</span>
               </Link>
             </li>
-            <li
-              className="nav-item"
-              data-toggle="tooltip"
-              data-placement="right"
-              title="Reviews"
-            >
-              <Link className="nav-link" to="/">
-                <i className="fa fa-fw fa-star" />
-                <span className="nav-link-text">Reviews</span>
-              </Link>
-            </li>
-            <li
-              className="nav-item"
-              data-toggle="tooltip"
-              data-placement="right"
-              title="Bookmarks"
-            >
-              <a className="nav-link" href="bookmarks.html">
-                <i className="fa fa-fw fa-heart" />
-                <span className="nav-link-text">Bookmarks</span>
-              </a>
-            </li>
+
             <li
               className="nav-item"
               data-toggle="tooltip"

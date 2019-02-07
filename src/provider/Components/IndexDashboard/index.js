@@ -105,7 +105,7 @@ class IndexDashboard extends Component {
           <footer className="sticky-footer">
             <div className="container">
               <div className="text-center">
-                <small>Copyright © FinDoctor 2017</small>
+                <small>Copyright © Servisbos 2019</small>
               </div>
             </div>
           </footer>
