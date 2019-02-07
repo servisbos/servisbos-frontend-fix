@@ -32,7 +32,7 @@ class NavbarDashboard extends Component {
               data-placement="right"
               title="Dashboard"
             >
-              <Link className="nav-link" to="/dashboard_user">
+              <Link className="nav-link" to="/provider/dashboard">
                 <i className="fa fa-fw fa-dashboard" />
                 <span className="nav-link-text">Dashboard</span>
               </Link>
@@ -43,7 +43,7 @@ class NavbarDashboard extends Component {
               data-placement="right"
               title="Request"
             >
-              <Link className="nav-link" to="/request">
+              <Link className="nav-link" to="/provider/dashboard/request">
                 <i className="fa fa-fw fa-briefcase" />
                 <span className="nav-link-text">Request</span>
               </Link>
@@ -55,10 +55,10 @@ class NavbarDashboard extends Component {
               data-placement="right"
               title="Add listing"
             >
-              <a className="nav-link" href="add-listing.html">
+              <Link className="nav-link" to="/provider/dashboard/addlisting">
                 <i className="fa fa-fw fa-plus-circle" />
                 <span className="nav-link-text">Add listing</span>
-              </a>
+              </Link>
             </li>
             <li
               className="nav-item"

@@ -1,8 +1,9 @@
 import React, { Component, Fragment } from "react";
-// import "../../../assets/css/admin.css";
 import { Route } from "react-router-dom";
 import NavbarDashboard from "../NavbarDashboard";
 import IndexDashboard from "../IndexDashboard";
+import IndexRequest from "../IndexRequest";
+// import IndexAddListing from "../IndexAddListing";
 
 class DashboardUser extends Component {
   render() {
@@ -15,10 +16,16 @@ class DashboardUser extends Component {
             path={`${this.props.match.path}/`}
             component={IndexDashboard}
           />
-          {/* <Route
+          <Route
+            exact
             path={`${this.props.match.path}/request`}
-            component={ListProvider}
-          /> */}
+            component={IndexRequest}
+          />
+          <Route
+            exact
+            path={`${this.props.match.path}/addlisting`}
+            component={IndexDashboard}
+          />
         </div>
       </Fragment>
     );
