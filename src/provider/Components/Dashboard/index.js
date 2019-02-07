@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import NavbarDashboard from "../NavbarDashboard";
 import IndexDashboard from "../IndexDashboard";
 import IndexRequest from "../IndexRequest";
-// import IndexAddListing from "../IndexAddListing";
+import IndexAddListing from "../IndexAddListing";
 
 class DashboardUser extends Component {
   render() {
@@ -20,11 +20,6 @@ class DashboardUser extends Component {
             exact
             path={`${this.props.match.path}/request`}
             component={IndexRequest}
-          />
-          <Route
-            exact
-            path={`${this.props.match.path}/addlisting`}
-            component={IndexDashboard}
           />
         </div>
       </Fragment>

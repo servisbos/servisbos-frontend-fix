@@ -48,34 +48,6 @@ class NavbarDashboard extends Component {
                 <span className="nav-link-text">Request</span>
               </Link>
             </li>
-
-            <li
-              className="nav-item"
-              data-toggle="tooltip"
-              data-placement="right"
-              title="Add listing"
-            >
-              <Link className="nav-link" to="/provider/dashboard/addlisting">
-                <i className="fa fa-fw fa-plus-circle" />
-                <span className="nav-link-text">Add listing</span>
-              </Link>
-            </li>
-            <li
-              className="nav-item"
-              data-toggle="tooltip"
-              data-placement="right"
-              title="My profile"
-            >
-              <a
-                className="nav-link nav-link-collapse collapsed"
-                data-toggle="collapse"
-                href="#collapseProfile"
-                data-parent="#exampleAccordion"
-              >
-                <i className="fa fa-fw fa-wrench" />
-                <span className="nav-link-text">My profile</span>
-              </a>
-            </li>
           </ul>
           <ul className="navbar-nav sidenav-toggler">
             <li className="nav-item">
