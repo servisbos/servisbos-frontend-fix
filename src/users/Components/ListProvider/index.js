@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 // import "../../../assets/css/admin.css";
-
 import { connect } from "react-redux";
 import {
   fetchUserServiceTypes,
   fetchUserServiceBySpecialization
 } from "../../../store/actions/user_service_type";
+import { fetchDataToBookingPage } from "../../../store/actions/orders";
 
 class ListProvider extends Component {
   state = {
@@ -19,8 +19,8 @@ class ListProvider extends Component {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleClickBooking = (id_user, id_service_type) => {
-    console.log("Masuk pak", id_user, id_service_type);
+  handleClickBooking = (id_provider, id_service_type) => {
+    this.props.fetchDataToBookingPage(id_provider, id_service_type);
   };
 
   handleSubmit = async e => {
@@ -31,15 +31,30 @@ class ListProvider extends Component {
   render() {
     const { keyword } = this.state;
     const { user_service_types } = this.props;
+    console.log(user_service_types);
     return (
       <main>
         <div id="results">
           <div className="container">
             <div className="row">
               <div className="col-md-6">
-                <h4>
-                  <strong>Showing 10</strong> of 140 results
-                </h4>
+                <div className="switch-field">
+                  <input
+                    type="radio"
+                    id="all"
+                    name="type_patient"
+                    defaultValue="all"
+                    defaultChecked
+                  />
+                  <label htmlFor="all">All</label>
+                  <input
+                    type="radio"
+                    id="providers"
+                    name="type_patient"
+                    defaultValue="providers"
+                  />
+                  <label htmlFor="providers">Providers</label>
+                </div>
               </div>
               <div className="col-md-6">
                 <div className="search_bar_list">
@@ -95,21 +110,26 @@ class ListProvider extends Component {
                     <div className="box_list">
                       <a href="#0" className="wish_bt" />
                       <figure>
-                        <a href="detail-page.html">
-                          <img
-                            src="http://via.placeholder.com/565x565.jpg"
-                            className="img-fluid"
-                            alt="test"
-                          />
-                          <div className="preview">
-                            <span>Read more</span>
-                          </div>
-                        </a>
+                        <img
+                          object
+                          src={user_service_type.user.image}
+                          className="img-fluid"
+                          alt="test"
+                        />
+                        <div className="preview">
+                          <span>Read more</span>
+                        </div>
                       </figure>
                       <div className="wrapper">
-                        <small>{user_service_type.id_services_type}</small>
-                        <h3>{user_service_type.id_users}</h3>
-                        <p>{user_service_type.price}</p>
+                        <small>
+                          {user_service_type.services_type.service_type}
+                        </small>
+                        <h3>
+                          {user_service_type.user.first_name +
+                            " " +
+                            user_service_type.user.lastname}
+                        </h3>
+                        <p>{user_service_type.user.city}</p>
                         <span className="rating">
                           <i className="icon_star voted" />
                           <i className="icon_star voted" />
@@ -117,33 +137,25 @@ class ListProvider extends Component {
                           <i className="icon_star" />
                           <i className="icon_star" /> <small>(145)</small>
                         </span>
-                        <a
-                          href="badges.html"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          data-original-title="Badge Level"
-                          className="badge_list_1"
-                        >
-                          <img
-                            src="img/badges/badge_1.svg"
-                            width={15}
-                            height={15}
-                            alt="test"
-                          />
-                        </a>
                       </div>
                       <ul>
                         <li />
                         <li />
                         <li>
                           <Link
-                            to="/user/dashboard/detail_page"
-                            // onClick={() =>
+                            to={`/user/dashboard/detail/${
+                              user_service_type.id_users
+                              }/${user_service_type.id_services_type}`}
+                            // onClick={e => {
+                            //   e.preventDefault();
                             //   this.handleClickBooking(
                             //     user_service_type.id_users,
                             //     user_service_type.id_services_type
-                            //   )
-                            // }
+                            //   );
+                            //   this.props.history.push(
+                            //     "/user/dashboard/detail_page"
+                            //   );
+                            // }}
                           >
                             Book now
                           </Link>
@@ -194,5 +206,9 @@ const mapStateToProps = store => ({
 });
 export default connect(
   mapStateToProps,
-  { fetchUserServiceTypes, fetchUserServiceBySpecialization }
+  {
+    fetchUserServiceTypes,
+    fetchUserServiceBySpecialization,
+    fetchDataToBookingPage
+  }
 )(ListProvider);

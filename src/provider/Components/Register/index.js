@@ -19,7 +19,7 @@ class SignupProvider extends Component {
     province: "",
     postal_code: "",
     success: false,
-    user_type: 1
+    user_type: 2
   };
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -55,11 +55,11 @@ class SignupProvider extends Component {
     } = this.state;
     const { isAuthenticated, isSignUpSuccess } = this.props;
     if (isAuthenticated) {
-      return <Redirect to="/users" />;
+      return <Redirect to="/provider/dashboard" />;
     }
 
     if (isSignUpSuccess) {
-      return <Redirect to="/signin" />;
+      return <Redirect to="/provider/signin" />;
     }
 
     return (

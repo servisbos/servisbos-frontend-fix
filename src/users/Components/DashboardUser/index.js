@@ -24,7 +24,7 @@ class DashboardUser extends Component {
             component={ListProvider}
           />
           <Route
-            path={`${this.props.match.path}/detail_page`}
+            path={`${this.props.match.path}/detail/:userid/:jobid`}
             component={DetailPage}
           />
           <Footer />

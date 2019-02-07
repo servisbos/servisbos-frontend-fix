@@ -10,7 +10,7 @@ class NavbarDashboard extends Component {
         className="navbar navbar-expand-lg navbar-dark bg-default fixed-top"
         id="mainNav"
       >
-        <Link className="navbar-brand" href="index.html">
+        <Link className="navbar-brand" to="/">
           <img src="/" alt="test" data-retina="true" width={163} height={36} />
         </Link>
         <button
