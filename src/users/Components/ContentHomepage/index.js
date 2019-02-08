@@ -75,20 +75,19 @@ class Main extends Component {
             <div className="col-lg-4">
               <div className="box_feat" id="icon_1">
                 <span />
-                <h3>Find a Mechanic</h3>
+                <h3>stay at your place</h3>
                 <p>
-                  Usu habeo equidem sanctus no. Suas summo id sed, erat erant
-                  oporteat cu pri. In eum omnes molestie.
+                  {" "}
+                  Save your time. <br /> No need to go to workshop
                 </p>
               </div>
             </div>
             <div className="col-lg-4">
               <div className="box_feat" id="icon_2">
                 <span />
-                <h3>View profile</h3>
+                <h3>choose service</h3>
                 <p>
-                  Usu habeo equidem sanctus no. Suas summo id sed, erat erant
-                  oporteat cu pri. In eum omnes molestie.
+                  Select the best <br /> mechanic for your needs
                 </p>
               </div>
             </div>
@@ -96,8 +95,8 @@ class Main extends Component {
               <div className="box_feat" id="icon_3">
                 <h3>Book a mechanic</h3>
                 <p>
-                  Usu habeo equidem sanctus no. Suas summo id sed, erat erant
-                  oporteat cu pri. In eum omnes molestie.
+                  wait your mechanic to come <br /> and get your vehicle
+                  repaired
                 </p>
               </div>
             </div>
