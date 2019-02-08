@@ -121,78 +121,38 @@ class Main extends Component {
           </div>
           <div className="row">
             <div className="col-lg-4 col-md-6">
-              <a href="list.html" className="box_cat_home">
+              <a href="#" className="box_cat_home">
                 <i className="icon-info-4" />
                 <img src={Icon1} width={100} height={100} alt="" />
                 <h3>Car Wash</h3>
-                <ul className="clearfix">
-                  <li>
-                    <strong>124</strong>Mechanics
-                  </li>
-                  <li>
-                    <strong>60</strong>Workshops
-                  </li>
-                </ul>
               </a>
             </div>
             <div className="col-lg-4 col-md-6">
-              <a href="list.html" className="box_cat_home">
+              <a href="#" className="box_cat_home">
                 <i className="icon-info-4" />
                 <img src={Icon2} width={100} height={100} alt="" />
                 <h3>Motorcycle Wash</h3>
-                <ul className="clearfix">
-                  <li>
-                    <strong>124</strong>Mechanics
-                  </li>
-                  <li>
-                    <strong>60</strong>Workshops
-                  </li>
-                </ul>
               </a>
             </div>
             <div className="col-lg-4 col-md-6">
-              <a href="list.html" className="box_cat_home">
+              <a href="#" className="box_cat_home">
                 <i className="icon-info-4" />
                 <img src={Icon3} width={100} height={100} alt="" />
                 <h3>Oil Change</h3>
-                <ul className="clearfix">
-                  <li>
-                    <strong>124</strong>Mechanics
-                  </li>
-                  <li>
-                    <strong>60</strong>Workshops
-                  </li>
-                </ul>
               </a>
             </div>
             <div className="col-lg-6 col-md-6">
-              <a href="list.html" className="box_cat_home">
+              <a href="#" className="box_cat_home">
                 <i className="icon-info-4" />
                 <img src={Icon4} width={120} height={120} alt="" />
                 <h3>Tyres Change</h3>
-                <ul className="clearfix">
-                  <li>
-                    <strong>124</strong>Mechanics
-                  </li>
-                  <li>
-                    <strong>60</strong>Workshops
-                  </li>
-                </ul>
               </a>
             </div>
             <div className="col-lg-6 col-md-6">
-              <a href="list.html" className="box_cat_home">
+              <a href="#" className="box_cat_home">
                 <i className="icon-info-4" />
                 <img src={Icon5} width={120} height={120} alt="" />
                 <h3>Machine Tuneup</h3>
-                <ul className="clearfix">
-                  <li>
-                    <strong>124</strong>Mechanics
-                  </li>
-                  <li>
-                    <strong>60</strong>Workshops
-                  </li>
-                </ul>
               </a>
             </div>
           </div>

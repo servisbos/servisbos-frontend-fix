@@ -21,39 +21,24 @@ class Footer extends Component {
               </p>
             </div>
             <div className="col-lg-3 col-md-4">
-              <h5>About</h5>
+              <h5> </h5>
               <ul className="links">
                 <li>
-                  <a href="#0">About us</a>
+                  <a href="login.html" />
                 </li>
                 <li>
-                  <a href="#0">Blog</a>
-                </li>
-                <li>
-                  <a href="#0">FAQ</a>
-                </li>
-                <li>
-                  <a href="login.html">Login</a>
-                </li>
-                <li>
-                  <a href="register.html">Register</a>
+                  <a href="register.html" />
                 </li>
               </ul>
             </div>
             <div className="col-lg-3 col-md-4">
-              <h5>Useful links</h5>
+              <h5>About</h5>
               <ul className="links">
                 <li>
-                  <a href="#0">Mechanics</a>
+                  <a href="#0">Login</a>
                 </li>
                 <li>
-                  <a href="#0">Workshop</a>
-                </li>
-                <li>
-                  <a href="#0">Specialization</a>
-                </li>
-                <li>
-                  <a href="#0">Join as a Mechanic</a>
+                  <a href="#0">Register</a>
                 </li>
               </ul>
             </div>
@@ -62,40 +47,15 @@ class Footer extends Component {
               <ul className="contacts">
                 <li>
                   <a href="tel://61280932400">
-                    <i className="icon_mobile" /> + 61 23 8093 3400
+                    <i className="icon_mobile" /> + 62 878 7477 9277
                   </a>
                 </li>
                 <li>
                   <a href="mailto:info@servisbos.com">
-                    <i className="icon_mail_alt" /> help@servisbos.com
+                    <i className="icon_mail_alt" /> servisbosdotcom@gmail.com
                   </a>
                 </li>
               </ul>
-              <div className="follow_us">
-                <h5>Follow us</h5>
-                <ul>
-                  <li>
-                    <a href="#0">
-                      <i className="social_facebook" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#0">
-                      <i className="social_twitter" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#0">
-                      <i className="social_linkedin" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#0">
-                      <i className="social_instagram" />
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
           <hr />
