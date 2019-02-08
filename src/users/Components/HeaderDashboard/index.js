@@ -11,7 +11,7 @@ class HeaderDashboard extends Component {
               <div className="col-lg-3 col-6">
                 <div id="">
                   <h1>
-                    <Link to="/dashboard/user" title="servisbos">
+                    <Link to="/user/dashboard" title="servisbos">
                       Servisbos
                     </Link>
                   </h1>
@@ -46,7 +46,7 @@ class HeaderDashboard extends Component {
                       </a>
                       <ul>
                         <li>
-                          <Link to="/user/dashboard">Home </Link>
+                          <Link to="/user/dashboard/">Home </Link>
                         </li>
                       </ul>
                     </li>

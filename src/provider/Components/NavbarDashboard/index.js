@@ -11,7 +11,7 @@ class NavbarDashboard extends Component {
         id="mainNav"
       >
         <Link className="navbar-brand" to="/">
-          <img src="/" alt="SERVISBOS" width={163} height={36} />
+          <img src="/" alt="test" data-retina="true" width={163} height={36} />
         </Link>
         <button
           className="navbar-toggler navbar-toggler-right"

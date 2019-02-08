@@ -1,15 +1,35 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 // import "../../../assets/css/admin.css";
-
 import { connect } from "react-redux";
-import { fetchUserServiceTypes } from "../../../store/actions/user_service_type";
+import {
+  fetchUserServiceTypes,
+  fetchUserServiceBySpecialization
+} from "../../../store/actions/user_service_type";
+import { fetchDataToBookingPage } from "../../../store/actions/orders";
 
 class ListProvider extends Component {
+  state = {
+    keyword: ""
+  };
   componentDidMount() {
     this.props.fetchUserServiceTypes();
   }
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleClickBooking = (id_provider, id_service_type) => {
+    this.props.fetchDataToBookingPage(id_provider, id_service_type);
+  };
+
+  handleSubmit = async e => {
+    e.preventDefault();
+    if (this.state.keyword == "") this.props.fetchUserServiceTypes();
+    else this.props.fetchUserServiceBySpecialization(this.state);
+  };
   render() {
+    const { keyword } = this.state;
     const { user_service_types } = this.props;
     return (
       <main>
@@ -17,22 +37,68 @@ class ListProvider extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-6">
-                <h4>
-                  <strong>Showing 0</strong> of 3 results
-                </h4>
+                <div className="switch-field">
+                  <input
+                    type="radio"
+                    id="all"
+                    name="type_patient"
+                    defaultValue="all"
+                    defaultChecked
+                  />
+                  <label htmlFor="all">All</label>
+                  <input
+                    type="radio"
+                    id="providers"
+                    name="type_patient"
+                    defaultValue="providers"
+                  />
+                  <label htmlFor="providers">Providers</label>
+                </div>
               </div>
               <div className="col-md-6">
                 <div className="search_bar_list">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Ex. Specialist"
-                  />
-                  <input type="submit" defaultValue="Search" />
+                  <form onSubmit={this.handleSubmit}>
+                    <input
+                      type="text"
+                      name="keyword"
+                      className="form-control"
+                      placeholder="Ex. Specialist"
+                      value={keyword}
+                      onChange={this.handleChange}
+                    />
+                    <input type="submit" defaultValue="Search" />
+                  </form>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+        <div className="filters_listing">
+          <div className="container">
+            <ul className="clearfix">
+              <li>
+                <h6>Type</h6>
+                <div className="switch-field">
+                  <input
+                    type="radio"
+                    id="all"
+                    name="type_patient"
+                    defaultValue="all"
+                    defaultChecked
+                  />
+                  <label htmlFor="all">All</label>
+                  <input
+                    type="radio"
+                    id="providers"
+                    name="type_patient"
+                    defaultValue="providers"
+                  />
+                  <label htmlFor="providers">Providers</label>
+                </div>
+              </li>
+            </ul>
+          </div>
+          {/* /container */}
         </div>
         <div className="container margin_60_35">
           <div className="row">
@@ -43,21 +109,26 @@ class ListProvider extends Component {
                     <div className="box_list">
                       <a href="#0" className="wish_bt" />
                       <figure>
-                        <a href="detail-page.html">
-                          <img
-                            src="http://via.placeholder.com/565x565.jpg"
-                            className="img-fluid"
-                            alt="test"
-                          />
-                          <div className="preview">
-                            <span>Read more</span>
-                          </div>
-                        </a>
+                        <img
+                          object
+                          src={user_service_type.user.image}
+                          className="img-fluid"
+                          alt="test"
+                        />
+                        <div className="preview">
+                          <span>Read more</span>
+                        </div>
                       </figure>
                       <div className="wrapper">
-                        <small>{user_service_type.id_service_type}</small>
-                        <h3>{user_service_type.id_user}</h3>
-                        <p>{user_service_type.price}</p>
+                        <small>
+                          {user_service_type.services_type.service_type}
+                        </small>
+                        <h3>
+                          {user_service_type.user.first_name +
+                            " " +
+                            user_service_type.user.lastname}
+                        </h3>
+                        <p>{user_service_type.user.city}</p>
                         <span className="rating">
                           <i className="icon_star voted" />
                           <i className="icon_star voted" />
@@ -65,24 +136,18 @@ class ListProvider extends Component {
                           <i className="icon_star" />
                           <i className="icon_star" /> <small>(145)</small>
                         </span>
-                        <a
-                          href="badges.html"
-                          data-toggle="tooltip"
-                          data-placement="top"
-                          data-original-title="Badge Level"
-                          className="badge_list_1"
-                        >
-                          <img
-                            src="img/badges/badge_1.svg"
-                            width={15}
-                            height={15}
-                            alt="test"
-                          />
-                        </a>
                       </div>
                       <ul>
+                        <li />
+                        <li />
                         <li>
-                          <Link to="/">Book now</Link>
+                          <Link
+                            to={`/user/dashboard/detail/${
+                              user_service_type.id_users
+                            }/${user_service_type.id_services_type}`}
+                          >
+                            Book now
+                          </Link>
                         </li>
                       </ul>
                     </div>
@@ -119,9 +184,6 @@ class ListProvider extends Component {
                 </ul>
               </nav>
             </div>
-            <aside className="col-lg-4" id="sidebar">
-              <div id="map_listing" className="normal_list" />
-            </aside>
           </div>
         </div>
       </main>
@@ -133,5 +195,9 @@ const mapStateToProps = store => ({
 });
 export default connect(
   mapStateToProps,
-  { fetchUserServiceTypes }
+  {
+    fetchUserServiceTypes,
+    fetchUserServiceBySpecialization,
+    fetchDataToBookingPage
+  }
 )(ListProvider);
