@@ -1,29 +1,28 @@
 import React, { Component, Fragment } from "react";
 import { Route } from "react-router-dom";
+import { connect } from "react-redux";
+
 import NavbarDashboard from "../NavbarDashboard";
 import IndexDashboard from "../IndexDashboard";
 import IndexRequest from "../IndexRequest";
-import IndexAddListing from "../IndexAddListing";
+// import IndexAddListing from "../IndexAddListing";
+import { signIn } from "../../../store/actions/auth";
 
 class DashboardProvider extends Component {
   render() {
+    const { idUserLogin } = this.props;
     return (
       <Fragment>
         <div className="fixed-nav sticky-footer" id="page-top">
           <NavbarDashboard />
-          {/* <Route
+          <Route
             exact
             path={`${this.props.match.path}/`}
             component={IndexDashboard}
-<<<<<<< HEAD
           />
           <Route
             exact
-=======
-          /> */}
-          {/* <Route
->>>>>>> 5123999c65beb399c743d2f217d55b79af3912f6
-            path={`${this.props.match.path}/request`}
+            path={`${this.props.match.path}/request/:loginid`}
             component={IndexRequest}
           />
         </div>
@@ -31,5 +30,12 @@ class DashboardProvider extends Component {
     );
   }
 }
-
-export default DashboardProvider;
+const mapStateToProps = store => ({
+  idUserLogin: store.auth.idUserLogin
+});
+export default connect(
+  mapStateToProps,
+  {
+    signIn
+  }
+)(DashboardProvider);

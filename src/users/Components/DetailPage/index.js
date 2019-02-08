@@ -14,8 +14,6 @@ class DetailPage extends Component {
   render() {
     const { jobs, providers, idUserLogin } = this.props;
 
-    console.log(idUserLogin);
-
     return (
       <main>
         <div className="container margin_60">

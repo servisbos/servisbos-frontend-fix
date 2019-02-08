@@ -2,9 +2,13 @@ import React, { Component } from "react";
 import "../../../assets/css/admin.css";
 import "../../../assets/vendor/font-awesome/css/font-awesome.min.css";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { signIn } from "../../../store/actions/auth";
 
 class NavbarDashboard extends Component {
   render() {
+    const { idUserLogin } = this.props;
+
     return (
       <nav
         className="navbar navbar-expand-lg navbar-dark bg-default fixed-top"
@@ -43,7 +47,10 @@ class NavbarDashboard extends Component {
               data-placement="right"
               title="Request"
             >
-              <Link className="nav-link" to="/provider/dashboard/request">
+              <Link
+                className="nav-link"
+                to={`/provider/dashboard/request/${idUserLogin}`}
+              >
                 <i className="fa fa-fw fa-briefcase" />
                 <span className="nav-link-text">Request</span>
               </Link>
@@ -69,5 +76,12 @@ class NavbarDashboard extends Component {
     );
   }
 }
-
-export default NavbarDashboard;
+const mapStateToProps = store => ({
+  idUserLogin: store.auth.idUserLogin
+});
+export default connect(
+  mapStateToProps,
+  {
+    signIn
+  }
+)(NavbarDashboard);

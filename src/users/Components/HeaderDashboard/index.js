@@ -1,8 +1,14 @@
 import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import { signIn } from "../../../store/actions/auth";
 
 class HeaderDashboard extends Component {
   render() {
+    const { dataUserLogin, idUserLogin } = this.props;
+    {
+      dataUserLogin && console.log(dataUserLogin);
+    }
     return (
       <Fragment>
         <header className="header_sticky">
@@ -29,26 +35,21 @@ class HeaderDashboard extends Component {
                     <Link to="/">
                       <figure>
                         <img
-                          src="http://via.placeholder.com/150x150.jpg"
+                          src={dataUserLogin && dataUserLogin.image}
                           alt="avatar"
                         />
                       </figure>
-                      Yusuf Habibi
+                      {dataUserLogin &&
+                        dataUserLogin.first_name + " " + dataUserLogin.lastname}
                     </Link>
                   </li>
                 </ul>
                 <div className="main-menu">
                   <ul>
                     <li className="submenu">
-                      <a href="#0" className="show-submenu">
+                      <Link to="/user/dashboard/" className="show-submenu">
                         Home
-                        <i className="icon-down-open-mini" />
-                      </a>
-                      <ul>
-                        <li>
-                          <Link to="/user/dashboard/">Home </Link>
-                        </li>
-                      </ul>
+                      </Link>
                     </li>
                     <li className="submenu">
                       <Link
@@ -59,15 +60,12 @@ class HeaderDashboard extends Component {
                       </Link>
                     </li>
                     <li className="submenu">
-                      <a href="#0" className="show-submenu">
-                        About
-                        <i className="icon-down-open-mini" />
-                      </a>
-                      <ul>
-                        <li>
-                          <a href="#">How We Work</a>
-                        </li>
-                      </ul>
+                      <Link
+                        to="/user/dashboard/user_request"
+                        className="show-submenu"
+                      >
+                        Request
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -79,4 +77,13 @@ class HeaderDashboard extends Component {
     );
   }
 }
-export default HeaderDashboard;
+const mapStateToProps = store => ({
+  idUserLogin: store.auth.idUserLogin,
+  dataUserLogin: store.auth.dataUserLogin
+});
+export default connect(
+  mapStateToProps,
+  {
+    signIn
+  }
+)(HeaderDashboard);

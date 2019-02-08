@@ -26,7 +26,7 @@ export const signIn = data => dispatch => {
       if (response.status === 200) {
         Cookies.set("token", response.data.token, { expires: 7 });
         console.log(response);
-        dispatch({ type: SIGN_IN, payload: response.data.id });
+        dispatch({ type: SIGN_IN, payload: response.data });
       }
     })
     .catch(err => {

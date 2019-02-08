@@ -37,6 +37,10 @@ class DashboardUser extends Component {
             path={`${this.props.match.path}/booking/:loginid/:provid/:jobid`}
             component={BookingPage}
           />
+          <Route
+            path={`${this.props.match.path}/user_request/:loginid`}
+            component={BookingPage}
+          />
           <Footer />
           <div id="toTop" />
         </div>
