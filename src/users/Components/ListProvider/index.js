@@ -31,7 +31,6 @@ class ListProvider extends Component {
   render() {
     const { keyword } = this.state;
     const { user_service_types } = this.props;
-    console.log(user_service_types);
     return (
       <main>
         <div id="results">
@@ -145,17 +144,7 @@ class ListProvider extends Component {
                           <Link
                             to={`/user/dashboard/detail/${
                               user_service_type.id_users
-                              }/${user_service_type.id_services_type}`}
-                            // onClick={e => {
-                            //   e.preventDefault();
-                            //   this.handleClickBooking(
-                            //     user_service_type.id_users,
-                            //     user_service_type.id_services_type
-                            //   );
-                            //   this.props.history.push(
-                            //     "/user/dashboard/detail_page"
-                            //   );
-                            // }}
+                            }/${user_service_type.id_services_type}`}
                           >
                             Book now
                           </Link>

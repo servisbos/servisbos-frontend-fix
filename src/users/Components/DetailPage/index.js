@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchDataServiceToBookingPage } from "../../../store/actions/orders";
 import { fetchDataProviderToBookingPage } from "../../../store/actions/orders";
+import { signIn } from "../../../store/actions/auth";
+import { Link } from "react-router-dom";
 
 class DetailPage extends Component {
   componentDidMount() {
@@ -10,9 +12,9 @@ class DetailPage extends Component {
     this.props.fetchDataServiceToBookingPage(jobid);
   }
   render() {
-    const { jobs, providers } = this.props;
+    const { jobs, providers, idUserLogin } = this.props;
 
-    console.log(providers);
+    console.log(idUserLogin);
 
     return (
       <main>
@@ -116,7 +118,7 @@ class DetailPage extends Component {
                           <div className="form-group">
                             <input
                               className="form-control"
-                              type="text"
+                              type="date"
                               id="booking_date"
                               data-lang="en"
                               data-min-year={2017}
@@ -155,9 +157,14 @@ class DetailPage extends Component {
                         </li>
                       </ul>
                       <hr />
-                      <a href="booking-page.html" className="btn_1 full-width">
-                        Book Now
-                      </a>
+                      <Link
+                        to={`/user/dashboard/booking/${idUserLogin}/${
+                          jobs.id
+                        }/${data.id}`}
+                        class="btn_1 full-width"
+                      >
+                        Book now
+                      </Link>
                     </form>
                   </div>
                   {/* /box_general */}
@@ -175,12 +182,14 @@ class DetailPage extends Component {
 }
 const mapStateToProps = store => ({
   jobs: store.orders.dataJob,
-  providers: store.orders.dataProvider
+  providers: store.orders.dataProvider,
+  idUserLogin: store.auth.idUserLogin
 });
 export default connect(
   mapStateToProps,
   {
     fetchDataProviderToBookingPage,
-    fetchDataServiceToBookingPage
+    fetchDataServiceToBookingPage,
+    signIn
   }
 )(DetailPage);

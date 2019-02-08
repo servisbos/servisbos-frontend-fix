@@ -55,11 +55,11 @@ class Signup extends Component {
     } = this.state;
     const { isAuthenticated, isSignUpSuccess } = this.props;
     if (isAuthenticated) {
-      return <Redirect to="/users" />;
+      return <Redirect to="/user/dashboard" />;
     }
 
     if (isSignUpSuccess) {
-      return <Redirect to="/signin" />;
+      return <Redirect to="/user/signin" />;
     }
 
     return (
