@@ -53,7 +53,7 @@ class HeaderDashboard extends Component {
                     </li>
                     <li className="submenu">
                       <Link
-                        to="/user/dashboard/list_provider"
+                        to="/user/dashboard/list_provider/0"
                         className="show-submenu"
                       >
                         Services

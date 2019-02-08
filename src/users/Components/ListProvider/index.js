@@ -13,7 +13,13 @@ class ListProvider extends Component {
     keyword: ""
   };
   componentDidMount() {
-    this.props.fetchUserServiceTypes();
+    const { idServiceType } = this.props.match.params;
+    console.log(idServiceType);
+    if (idServiceType == 0) {
+      this.props.fetchUserServiceTypes();
+    } else {
+      this.props.fetchUserServiceBySpecialization(idServiceType);
+    }
   }
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value });
@@ -36,25 +42,7 @@ class ListProvider extends Component {
         <div id="results">
           <div className="container">
             <div className="row">
-              <div className="col-md-6">
-                <div className="switch-field">
-                  <input
-                    type="radio"
-                    id="all"
-                    name="type_patient"
-                    defaultValue="all"
-                    defaultChecked
-                  />
-                  <label htmlFor="all">All</label>
-                  <input
-                    type="radio"
-                    id="providers"
-                    name="type_patient"
-                    defaultValue="providers"
-                  />
-                  <label htmlFor="providers">Providers</label>
-                </div>
-              </div>
+              <div className="col-md-6" />
               <div className="col-md-6">
                 <div className="search_bar_list">
                   <form onSubmit={this.handleSubmit}>
@@ -73,86 +61,61 @@ class ListProvider extends Component {
             </div>
           </div>
         </div>
-        <div className="filters_listing">
-          <div className="container">
-            <ul className="clearfix">
-              <li>
-                <h6>Type</h6>
-                <div className="switch-field">
-                  <input
-                    type="radio"
-                    id="all"
-                    name="type_patient"
-                    defaultValue="all"
-                    defaultChecked
-                  />
-                  <label htmlFor="all">All</label>
-                  <input
-                    type="radio"
-                    id="providers"
-                    name="type_patient"
-                    defaultValue="providers"
-                  />
-                  <label htmlFor="providers">Providers</label>
-                </div>
-              </li>
-            </ul>
-          </div>
-          {/* /container */}
-        </div>
+
         <div className="container margin_60_35">
           <div className="row">
             <div className="col-lg-12">
               <div className="row">
-                {user_service_types.map(user_service_type => (
-                  <div className="col-md-4">
-                    <div className="box_list">
-                      <a href="#0" className="wish_bt" />
-                      <figure>
-                        <img
-                          object
-                          src={user_service_type.user.image}
-                          className="img-fluid"
-                          alt="test"
-                        />
-                        <div className="preview">
-                          <span>Read more</span>
+                {user_service_types &&
+                  user_service_types.map(user_service_type => (
+                    <div className="col-md-4">
+                      <div className="box_list">
+                        <a href="#0" className="wish_bt" />
+                        <figure>
+                          <img
+                            object
+                            src={user_service_type.user.image}
+                            className="img-fluid"
+                            alt="test"
+                          />
+                          <div className="preview">
+                            <span>Read more</span>
+                          </div>
+                        </figure>
+                        <div className="wrapper">
+                          <small>
+                            {user_service_type.services_type.service_type}
+                          </small>
+                          <h3>
+                            {user_service_type.user.first_name +
+                              " " +
+                              user_service_type.user.lastname}
+                          </h3>
+                          <p>{user_service_type.user.city}</p>
+                          <span className="rating">
+                            <i className="icon_star voted" />
+                            <i className="icon_star voted" />
+                            <i className="icon_star voted" />
+                            <i className="icon_star" />
+                            <i className="icon_star" /> <small>(145)</small>
+                          </span>
                         </div>
-                      </figure>
-                      <div className="wrapper">
-                        <small>
-                          {user_service_type.services_type.service_type}
-                        </small>
-                        <h3>
-                          {user_service_type.user.first_name +
-                            " " +
-                            user_service_type.user.lastname}
-                        </h3>
-                        <p>{user_service_type.user.city}</p>
-                        <span className="rating">
-                          <i className="icon_star voted" />
-                          <i className="icon_star voted" />
-                          <i className="icon_star voted" />
-                          <i className="icon_star" />
-                          <i className="icon_star" /> <small>(145)</small>
-                        </span>
+                        <ul>
+                          <li />
+                          <li />
+                          <li>
+                            <Link
+                              to={`/user/dashboard/detail/${
+                                user_service_type.id_users
+                              }/${user_service_type.id_services_type}`}
+                            >
+                              Book now
+                            </Link>
+                          </li>
+                        </ul>
                       </div>
-                      <ul>
-                        <li />
-                        <li />
-                        <li>
-                          <Link
-                            to={`/user/dashboard/detail/${
-                              user_service_type.id_users
-                            }/${user_service_type.id_services_type}`}
-                          >
-                            Book now
-                          </Link>
-                        </li>
-                      </ul>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
               <nav>
                 <ul className="pagination pagination-sm">

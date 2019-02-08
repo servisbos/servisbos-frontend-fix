@@ -60,6 +60,7 @@ class BookingPage extends Component {
       province,
       order_date
     } = this.state;
+    console.log(providers);
 
     if (statusOrder) return <Redirect to="/user/dashboard/confirm" />;
 

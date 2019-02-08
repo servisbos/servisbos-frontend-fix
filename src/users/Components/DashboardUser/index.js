@@ -23,7 +23,7 @@ class DashboardUser extends Component {
             component={ContentHomepage}
           />
           <Route
-            path={`${this.props.match.path}/list_provider`}
+            path={`${this.props.match.path}/list_provider/:idServiceType`}
             component={ListProvider}
           />
           <Route
