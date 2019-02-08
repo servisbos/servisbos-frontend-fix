@@ -4,6 +4,7 @@ import ContentHomepage from "../ContentHomepage";
 import ListProvider from "../ListProvider";
 import DetailPage from "../DetailPage";
 import BookingPage from "../BookingPage";
+import ConfirmPage from "../ConfirmPage";
 
 import Footer from "../Footer";
 import { Route } from "react-router-dom";
@@ -23,6 +24,10 @@ class DashboardUser extends Component {
           <Route
             path={`${this.props.match.path}/list_provider`}
             component={ListProvider}
+          />
+          <Route
+            path={`${this.props.match.path}/confirm`}
+            component={ConfirmPage}
           />
           <Route
             path={`${this.props.match.path}/detail/:userid/:jobid`}

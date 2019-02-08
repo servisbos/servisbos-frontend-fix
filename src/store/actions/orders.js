@@ -3,7 +3,8 @@ import {
   GET_PROVIDER_TO_BOOKING_PAGE,
   GET_USER_TO_BOOKING_PAGE,
   GET_SERVICE_TO_BOOKING_PAGE,
-  ORDER_BOOKING
+  ORDER_BOOKING,
+  SET_ORDER_STATUS
 } from "../types";
 import Axios from "axios";
 import Cookies from "js-cookie";
@@ -63,15 +64,18 @@ export const fetchDataServiceToBookingPage = id_service_type => dispatch => {
 };
 
 export const orderService = data => dispatch => {
-  const token = Cookies.get("token");
-  Axios.post("http://localhost:8000/api/servicetype", data)
-    .then(({ data: { servicetype } }) => {
-      dispatch({
-        type: ORDER_BOOKING,
-        payload: servicetype
-      });
+  Axios.post("http://localhost:8000/api/order", data)
+    .then(response => {
+      if (response.status === 200) {
+        dispatch(setOrderStatus(true));
+      }
     })
     .catch(err => {
       console.error(err);
+      dispatch(setOrderStatus(false));
     });
 };
+export const setOrderStatus = value => ({
+  type: SET_ORDER_STATUS,
+  payload: value
+});

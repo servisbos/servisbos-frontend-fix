@@ -4,23 +4,38 @@ import {
   fetchDataUserToBookingPage,
   fetchDataServiceToBookingPage,
   fetchDataProviderToBookingPage,
-  bookingProvider
+  orderService
 } from "../../../store/actions/orders";
 
 import { signIn } from "../../../store/actions/auth";
 import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 class BookingPage extends Component {
   state = {
+    id_user: "",
+    id_provider: "",
+    id_services_type: "",
     address: "",
     city: "",
     postal_code: "",
     province: "",
-    order_date: ""
+    status: "PENDING",
+    payment_type: "CASH",
+    order_date: Date.now()
   };
 
   componentDidMount() {
     const { loginid, provid, jobid } = this.props.match.params;
+    {
+      loginid && this.setState({ id_user: loginid });
+    }
+    {
+      provid && this.setState({ id_provider: provid });
+    }
+    {
+      jobid && this.setState({ id_services_type: jobid });
+    }
     this.props.fetchDataUserToBookingPage(loginid);
     this.props.fetchDataProviderToBookingPage(provid);
     this.props.fetchDataServiceToBookingPage(jobid);
@@ -31,11 +46,23 @@ class BookingPage extends Component {
   handleSubmit = async e => {
     e.preventDefault();
 
-    this.props.bookingProvider(this.state);
+    this.props.orderService(this.state);
   };
   render() {
-    const { jobs, providers, users, idUserLogin } = this.props;
-    const { address, city, postal_code, province, order_date } = this.state;
+    const { jobs, providers, users, idUserLogin, statusOrder } = this.props;
+    const {
+      id_user,
+      id_provider,
+      id_services_type,
+      address,
+      city,
+      postal_code,
+      province,
+      order_date
+    } = this.state;
+
+    if (statusOrder) return <Redirect to="/user/dashboard/confirm" />;
+
     return (
       <main>
         <div id="breadcrumb">
@@ -146,6 +173,17 @@ class BookingPage extends Component {
                     <div className="col-md-12 col-sm-12">
                       <div className="form-group">
                         <label>Address</label>
+                        <input type="hidden" name="id_user" value={id_user} />
+                        <input
+                          type="hidden"
+                          name="id_provider"
+                          value={id_provider}
+                        />
+                        <input
+                          type="hidden"
+                          name="id_services_type"
+                          value={id_services_type}
+                        />
                         <input
                           type="textarea"
                           id="street_1"
@@ -289,7 +327,8 @@ const mapStateToProps = store => ({
   jobs: store.orders.dataJob,
   providers: store.orders.dataProvider,
   idUserLogin: store.auth.idUserLogin,
-  users: store.orders.dataUser
+  users: store.orders.dataUser,
+  statusOrder: store.orders.status_order
 });
 export default connect(
   mapStateToProps,
@@ -297,6 +336,7 @@ export default connect(
     fetchDataUserToBookingPage,
     fetchDataServiceToBookingPage,
     fetchDataProviderToBookingPage,
-    signIn
+    signIn,
+    orderService
   }
 )(BookingPage);
