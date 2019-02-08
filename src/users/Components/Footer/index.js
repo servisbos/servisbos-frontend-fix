@@ -11,7 +11,6 @@ class Footer extends Component {
                 <a href="index.html" title="Servisbos">
                   <img
                     src=""
-                    data-retina="true"
                     alt=""
                     width="163"
                     height="36"
@@ -63,10 +62,13 @@ class Footer extends Component {
             <div className="col-md-8">
               <ul id="additional_links">
                 <li>
-                  <a href="#0">Terms and conditions</a>
+                  <a href="#0">Yusuf Habibi</a>
                 </li>
                 <li>
-                  <a href="#0">Privacy</a>
+                  <a href="#0">Ipul Saepulloh</a>
+                </li>
+                <li>
+                  <a href="#0">Iwin Rahardjo</a>
                 </li>
               </ul>
             </div>
