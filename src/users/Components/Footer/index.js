@@ -62,13 +62,15 @@ class Footer extends Component {
             <div className="col-md-8">
               <ul id="additional_links">
                 <li>
-                  <a href="#0">Yusuf Habibi</a>
+                  <a href="#">Yusuf Habibi</a>
                 </li>
                 <li>
-                  <a href="#0">Ipul Saepulloh</a>
+                  <a href="#">Ipul Saepulloh</a>
                 </li>
                 <li>
-                  <a href="#0">Iwin Rahardjo</a>
+                  <a href="https://www.linkedin.com/in/iwinrahardjo">
+                    Iwin Rahardjo
+                  </a>
                 </li>
               </ul>
             </div>
