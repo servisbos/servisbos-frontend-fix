@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import NavbarDashboard from "../NavbarDashboard";
 import IndexDashboard from "../IndexDashboard";
 import IndexRequest from "../IndexRequest";
-// import IndexAddListing from "../IndexAddListing";
 import { signIn } from "../../../store/actions/auth";
 
 class DashboardProvider extends Component {
