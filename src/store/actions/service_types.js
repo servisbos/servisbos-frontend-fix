@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 
 export const fetchServiceTypes = () => dispatch => {
   const token = Cookies.get("token");
-  Axios.get("http://localhost:8000/api/servicetype")
+  Axios.get(`${process.env.REACT_APP_API_URL}/api/servicetype`)
     .then(({ data: { servicetype } }) => {
       dispatch({ type: FETCH_SERVICE_TYPES, payload: servicetype });
     })
