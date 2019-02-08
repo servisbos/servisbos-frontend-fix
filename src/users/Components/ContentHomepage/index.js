@@ -111,41 +111,42 @@ class Main extends Component {
           <div className="main_title">
             <h2>Find by specialization</h2>
             <p>
-              Nec graeci sadipscing disputationi ne, mea ea nonumes percipitur.
-              Nonumy ponderum oporteat cu mel, pro movet cetero at.
+              meet your needs by finding the best worker for you. making your
+              search far easier by dividing existing workers according to their
+              expertise
             </p>
           </div>
           <div className="row">
             <div className="col-lg-4 col-md-6">
-              <a href="#" className="box_cat_home">
+              <a className="box_cat_home">
                 <i className="icon-info-4" />
                 <img src={Icon1} width={100} height={100} alt="" />
                 <h3>Car Wash</h3>
               </a>
             </div>
             <div className="col-lg-4 col-md-6">
-              <a href="#" className="box_cat_home">
+              <a className="box_cat_home">
                 <i className="icon-info-4" />
                 <img src={Icon2} width={100} height={100} alt="" />
                 <h3>Motorcycle Wash</h3>
               </a>
             </div>
             <div className="col-lg-4 col-md-6">
-              <a href="#" className="box_cat_home">
+              <a className="box_cat_home">
                 <i className="icon-info-4" />
                 <img src={Icon3} width={100} height={100} alt="" />
                 <h3>Oil Change</h3>
               </a>
             </div>
             <div className="col-lg-6 col-md-6">
-              <a href="#" className="box_cat_home">
+              <a className="box_cat_home">
                 <i className="icon-info-4" />
                 <img src={Icon4} width={120} height={120} alt="" />
                 <h3>Tyres Change</h3>
               </a>
             </div>
             <div className="col-lg-6 col-md-6">
-              <a href="#" className="box_cat_home">
+              <a className="box_cat_home">
                 <i className="icon-info-4" />
                 <img src={Icon5} width={120} height={120} alt="" />
                 <h3>Machine Tuneup</h3>
