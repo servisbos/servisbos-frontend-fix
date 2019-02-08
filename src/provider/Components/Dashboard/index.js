@@ -5,8 +5,11 @@ import { connect } from "react-redux";
 import NavbarDashboard from "../NavbarDashboard";
 import IndexDashboard from "../IndexDashboard";
 import IndexRequest from "../IndexRequest";
+<<<<<<< HEAD
 // import IndexAddListing from "../IndexAddListing";
 import { signIn } from "../../../store/actions/auth";
+=======
+>>>>>>> 3aaf8ad44f18660ba4b1e8fa8b9c45c2eac703cc
 
 class DashboardProvider extends Component {
   render() {
@@ -22,7 +25,11 @@ class DashboardProvider extends Component {
           />
           <Route
             exact
+<<<<<<< HEAD
             path={`${this.props.match.path}/request/:loginid`}
+=======
+            path={`${this.props.match.path}/request`}
+>>>>>>> 3aaf8ad44f18660ba4b1e8fa8b9c45c2eac703cc
             component={IndexRequest}
           />
         </div>

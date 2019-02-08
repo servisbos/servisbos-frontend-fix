@@ -62,9 +62,7 @@ class Main extends Component {
 
         <div className="container margin_120_95">
           <div className="main_title">
-            <h2>
-              Discover the <strong>online</strong> appointment!
-            </h2>
+            <h2>Discover the online appointment</h2>
             <p>
               Usu habeo equidem sanctus no. Suas summo id sed, erat erant
               oporteat cu pri. In eum omnes molestie. Sed ad debet scaevola, ne
@@ -75,20 +73,18 @@ class Main extends Component {
             <div className="col-lg-4">
               <div className="box_feat" id="icon_1">
                 <span />
-                <h3>Find a Mechanic</h3>
+                <h3>stay at your place</h3>
                 <p>
-                  Usu habeo equidem sanctus no. Suas summo id sed, erat erant
-                  oporteat cu pri. In eum omnes molestie.
+                  Save your time. <br /> No need to go to workshop
                 </p>
               </div>
             </div>
             <div className="col-lg-4">
               <div className="box_feat" id="icon_2">
                 <span />
-                <h3>View profile</h3>
+                <h3>choose service</h3>
                 <p>
-                  Usu habeo equidem sanctus no. Suas summo id sed, erat erant
-                  oporteat cu pri. In eum omnes molestie.
+                  Select the best <br /> mechanic for your needs
                 </p>
               </div>
             </div>
@@ -96,15 +92,15 @@ class Main extends Component {
               <div className="box_feat" id="icon_3">
                 <h3>Book a mechanic</h3>
                 <p>
-                  Usu habeo equidem sanctus no. Suas summo id sed, erat erant
-                  oporteat cu pri. In eum omnes molestie.
+                  wait your mechanic to come <br /> and get your vehicle
+                  repaired
                 </p>
               </div>
             </div>
           </div>
           {/* End row */}
           <p className="text-center">
-            <a href="list.html" className="btn_1 medium">
+            <a href="" className="btn_1 medium">
               Find Mechanic
             </a>
           </p>
@@ -115,105 +111,46 @@ class Main extends Component {
           <div className="main_title">
             <h2>Find by specialization</h2>
             <p>
-              Nec graeci sadipscing disputationi ne, mea ea nonumes percipitur.
-              Nonumy ponderum oporteat cu mel, pro movet cetero at.
+              meet your needs by finding the best worker for you. making your
+              search far easier by dividing existing workers according to their
+              expertise
             </p>
           </div>
           <div className="row">
             <div className="col-lg-4 col-md-6">
-              <a href="list.html" className="box_cat_home">
+              <a className="box_cat_home">
                 <i className="icon-info-4" />
                 <img src={Icon1} width={100} height={100} alt="" />
                 <h3>Car Wash</h3>
-                <ul className="clearfix">
-                  <li>
-                    <strong>124</strong>Mechanics
-                  </li>
-                  <li>
-                    <strong>60</strong>Workshops
-                  </li>
-                </ul>
               </a>
             </div>
             <div className="col-lg-4 col-md-6">
-              <a href="list.html" className="box_cat_home">
+              <a className="box_cat_home">
                 <i className="icon-info-4" />
                 <img src={Icon2} width={100} height={100} alt="" />
                 <h3>Motorcycle Wash</h3>
-                <ul className="clearfix">
-                  <li>
-                    <strong>124</strong>Mechanics
-                  </li>
-                  <li>
-                    <strong>60</strong>Workshops
-                  </li>
-                </ul>
               </a>
             </div>
             <div className="col-lg-4 col-md-6">
-              <a href="list.html" className="box_cat_home">
+              <a className="box_cat_home">
                 <i className="icon-info-4" />
                 <img src={Icon3} width={100} height={100} alt="" />
                 <h3>Oil Change</h3>
-                <ul className="clearfix">
-                  <li>
-                    <strong>124</strong>Mechanics
-                  </li>
-                  <li>
-                    <strong>60</strong>Workshops
-                  </li>
-                </ul>
               </a>
             </div>
             <div className="col-lg-6 col-md-6">
-              <a href="list.html" className="box_cat_home">
+              <a className="box_cat_home">
                 <i className="icon-info-4" />
                 <img src={Icon4} width={120} height={120} alt="" />
                 <h3>Tyres Change</h3>
-                <ul className="clearfix">
-                  <li>
-                    <strong>124</strong>Mechanics
-                  </li>
-                  <li>
-                    <strong>60</strong>Workshops
-                  </li>
-                </ul>
               </a>
             </div>
             <div className="col-lg-6 col-md-6">
-              <a href="list.html" className="box_cat_home">
+              <a className="box_cat_home">
                 <i className="icon-info-4" />
                 <img src={Icon5} width={120} height={120} alt="" />
                 <h3>Machine Tuneup</h3>
-                <ul className="clearfix">
-                  <li>
-                    <strong>124</strong>Mechanics
-                  </li>
-                  <li>
-                    <strong>60</strong>Workshops
-                  </li>
-                </ul>
               </a>
-            </div>
-          </div>
-        </div>
-        <div id="app_section">
-          <div className="container">
-            <div className="row justify-content-around">
-              <div className="agileinfo-subscribe-grid text-center">
-                <img src="images/mail.png" alt="" />
-                <h4>stay upto date with our newsletter!</h4>
-                <p>Sign up to recieve info on upcoming services and more.</p>
-                <form action="#" method="post">
-                  <input
-                    type="email"
-                    placeholder="Enter your email.."
-                    name="Subscribe"
-                    required=""
-                  />
-                  <button className="btn1">sign up</button>
-                </form>
-              </div>
             </div>
           </div>
         </div>

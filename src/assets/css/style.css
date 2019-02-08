@@ -193,7 +193,7 @@ strong {
 
 .main_title {
   text-align: center;
-  margin-bottom: 45px;
+  margin-bottom: 10px;
 }
 @media (max-width: 767px) {
   .main_title {

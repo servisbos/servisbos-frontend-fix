@@ -11,7 +11,6 @@ class Footer extends Component {
                 <a href="index.html" title="Servisbos">
                   <img
                     src=""
-                    data-retina="true"
                     alt=""
                     width="163"
                     height="36"
@@ -24,36 +23,10 @@ class Footer extends Component {
               <h5>About</h5>
               <ul className="links">
                 <li>
-                  <a href="#0">About us</a>
+                  <a href="#0">Login</a>
                 </li>
                 <li>
-                  <a href="#0">Blog</a>
-                </li>
-                <li>
-                  <a href="#0">FAQ</a>
-                </li>
-                <li>
-                  <a href="login.html">Login</a>
-                </li>
-                <li>
-                  <a href="register.html">Register</a>
-                </li>
-              </ul>
-            </div>
-            <div className="col-lg-3 col-md-4">
-              <h5>Useful links</h5>
-              <ul className="links">
-                <li>
-                  <a href="#0">Mechanics</a>
-                </li>
-                <li>
-                  <a href="#0">Workshop</a>
-                </li>
-                <li>
-                  <a href="#0">Specialization</a>
-                </li>
-                <li>
-                  <a href="#0">Join as a Mechanic</a>
+                  <a href="#0">Register</a>
                 </li>
               </ul>
             </div>
@@ -62,40 +35,15 @@ class Footer extends Component {
               <ul className="contacts">
                 <li>
                   <a href="tel://61280932400">
-                    <i className="icon_mobile" /> + 61 23 8093 3400
+                    <i className="icon_mobile" /> + 62 878 7477 9277
                   </a>
                 </li>
                 <li>
                   <a href="mailto:info@servisbos.com">
-                    <i className="icon_mail_alt" /> help@servisbos.com
+                    <i className="icon_mail_alt" /> servisbosdotcom@gmail.com
                   </a>
                 </li>
               </ul>
-              <div className="follow_us">
-                <h5>Follow us</h5>
-                <ul>
-                  <li>
-                    <a href="#0">
-                      <i className="social_facebook" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#0">
-                      <i className="social_twitter" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#0">
-                      <i className="social_linkedin" />
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#0">
-                      <i className="social_instagram" />
-                    </a>
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
           <hr />
@@ -103,10 +51,17 @@ class Footer extends Component {
             <div className="col-md-8">
               <ul id="additional_links">
                 <li>
-                  <a href="#0">Terms and conditions</a>
+                  <a href="https://www.linkedin.com/in/yusuf-h-a924b2117">
+                    Yusuf Habibi
+                  </a>
                 </li>
                 <li>
-                  <a href="#0">Privacy</a>
+                  <a href="#">Ipul Saepulloh</a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/in/iwinrahardjo">
+                    Iwin Rahardjo
+                  </a>
                 </li>
               </ul>
             </div>
