@@ -20,17 +20,6 @@ class Footer extends Component {
               </p>
             </div>
             <div className="col-lg-3 col-md-4">
-              <h5> </h5>
-              <ul className="links">
-                <li>
-                  <a href="login.html" />
-                </li>
-                <li>
-                  <a href="register.html" />
-                </li>
-              </ul>
-            </div>
-            <div className="col-lg-3 col-md-4">
               <h5>About</h5>
               <ul className="links">
                 <li>
@@ -62,7 +51,9 @@ class Footer extends Component {
             <div className="col-md-8">
               <ul id="additional_links">
                 <li>
-                  <a href="#">Yusuf Habibi</a>
+                  <a href="https://www.linkedin.com/in/yusuf-h-a924b2117">
+                    Yusuf Habibi
+                  </a>
                 </li>
                 <li>
                   <a href="#">Ipul Saepulloh</a>

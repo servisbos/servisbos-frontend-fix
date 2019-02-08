@@ -62,9 +62,7 @@ class Main extends Component {
 
         <div className="container margin_120_95">
           <div className="main_title">
-            <h2>
-              Discover the <strong>online</strong> appointment!
-            </h2>
+            <h2>Discover the online appointment</h2>
             <p>
               Usu habeo equidem sanctus no. Suas summo id sed, erat erant
               oporteat cu pri. In eum omnes molestie. Sed ad debet scaevola, ne
@@ -77,7 +75,6 @@ class Main extends Component {
                 <span />
                 <h3>stay at your place</h3>
                 <p>
-                  {" "}
                   Save your time. <br /> No need to go to workshop
                 </p>
               </div>
@@ -103,7 +100,7 @@ class Main extends Component {
           </div>
           {/* End row */}
           <p className="text-center">
-            <a href="list.html" className="btn_1 medium">
+            <a href="" className="btn_1 medium">
               Find Mechanic
             </a>
           </p>
