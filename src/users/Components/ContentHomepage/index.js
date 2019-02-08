@@ -197,26 +197,6 @@ class Main extends Component {
             </div>
           </div>
         </div>
-        <div id="app_section">
-          <div className="container">
-            <div className="row justify-content-around">
-              <div className="agileinfo-subscribe-grid text-center">
-                <img src="images/mail.png" alt="" />
-                <h4>stay upto date with our newsletter!</h4>
-                <p>Sign up to recieve info on upcoming services and more.</p>
-                <form action="#" method="post">
-                  <input
-                    type="email"
-                    placeholder="Enter your email.."
-                    name="Subscribe"
-                    required=""
-                  />
-                  <button className="btn1">sign up</button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
       </Fragment>
     );
   }
