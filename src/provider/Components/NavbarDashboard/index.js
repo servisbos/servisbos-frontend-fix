@@ -3,12 +3,16 @@ import "../../../assets/css/admin.css";
 import "../../../assets/vendor/font-awesome/css/font-awesome.min.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { signIn } from "../../../store/actions/auth";
+import { signIn, signOut } from "../../../store/actions/auth";
 
 class NavbarDashboard extends Component {
-  render() {
-    const { idUserLogin } = this.props;
+  handleSignOut = () => {
+    this.props.signOut();
+  };
 
+  render() {
+    const { idUserLogin, isAuthenticated } = this.props;
+    console.log(isAuthenticated);
     return (
       <nav
         className="navbar navbar-expand-lg navbar-dark bg-default fixed-top"
@@ -65,7 +69,14 @@ class NavbarDashboard extends Component {
           </ul>
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
-              <Link className="nav-link" to="/signout">
+              <Link
+                className="nav-link"
+                to="#"
+                onClick={e => {
+                  e.preventDefault();
+                  this.handleSignOut();
+                }}
+              >
                 <i className="fa fa-fw fa-sign-out" />
                 Logout
               </Link>
@@ -77,11 +88,13 @@ class NavbarDashboard extends Component {
   }
 }
 const mapStateToProps = store => ({
-  idUserLogin: store.auth.idUserLogin
+  idUserLogin: store.auth.idUserLogin,
+  isAuthenticated: store.auth.isAuthenticated
 });
 export default connect(
   mapStateToProps,
   {
-    signIn
+    signIn,
+    signOut
   }
 )(NavbarDashboard);
