@@ -33,10 +33,10 @@ class Main extends Component {
       <Fragment>
         <div className="hero_home version_2">
           <div className="content">
-            <h3>Servis Bos!</h3>
+            <h3>Servis Bos</h3>
             <p>
-              Ridiculus sociosqu cursus neque cursus curae ante scelerisque
-              vehicula.
+              Gives you the convenience of finding a mechanic to repair your
+              vehicle{" "}
             </p>
             <form onSubmit={this.handleSubmit}>
               <div id="custom-search-input">
@@ -63,11 +63,7 @@ class Main extends Component {
         <div className="container margin_120_95">
           <div className="main_title">
             <h2>Discover the online appointment</h2>
-            <p>
-              Usu habeo equidem sanctus no. Suas summo id sed, erat erant
-              oporteat cu pri. In eum omnes molestie. Sed ad debet scaevola, ne
-              mel.
-            </p>
+            <p>Simple steps to fulfill your needs</p>
           </div>
           <div className="row add_bottom_30">
             <div className="col-lg-4">
