@@ -41,7 +41,9 @@ export const fetchDataProviderToBookingPage = id_provider => dispatch => {
 
 export const fetchDataOrderByIdProvider = id_provider => dispatch => {
   const token = Cookies.get("token");
-  Axios.get(`http://localhost:8000/api/order/provider/${id_provider}`)
+  Axios.get(
+    `${process.env.REACT_APP_API_URL}/api/order/provider/${id_provider}`
+  )
     .then(response => {
       console.log(response.data.orders);
       dispatch({
@@ -56,7 +58,9 @@ export const fetchDataOrderByIdProvider = id_provider => dispatch => {
 
 export const fetchDataUserToBookingPage = id_user => dispatch => {
   const token = Cookies.get("token");
-  Axios.get(`http://localhost:8000/api/users/getDataProvider/${id_user}`)
+  Axios.get(
+    `${process.env.REACT_APP_API_URL}/api/users/getDataProvider/${id_user}`
+  )
     .then(({ data: { users } }) => {
       dispatch({
         type: GET_USER_TO_BOOKING_PAGE,
@@ -69,7 +73,9 @@ export const fetchDataUserToBookingPage = id_user => dispatch => {
 };
 export const fetchDataServiceToBookingPage = id_service_type => dispatch => {
   const token = Cookies.get("token");
-  Axios.get(`http://localhost:8000/api/servicetype/${id_service_type}`)
+  Axios.get(
+    `${process.env.REACT_APP_API_URL}/api/servicetype/${id_service_type}`
+  )
     .then(({ data: { servicetype } }) => {
       dispatch({
         type: GET_SERVICE_TO_BOOKING_PAGE,
@@ -82,7 +88,7 @@ export const fetchDataServiceToBookingPage = id_service_type => dispatch => {
 };
 
 export const orderService = data => dispatch => {
-  Axios.post("http://localhost:8000/api/order", data)
+  Axios.post(`${process.env.REACT_APP_API_URL}/api/order`, data)
     .then(response => {
       if (response.status === 200) {
         dispatch(setOrderStatus(true));
@@ -104,7 +110,7 @@ export const setConfirmationStatus = value => ({
 });
 
 export const confirmOrder = (id_order, status) => dispatch => {
-  Axios.patch(`http://localhost:8000/api/order/${id_order}`, {
+  Axios.patch(`${process.env.REACT_APP_API_URL}/api/order/${id_order}`, {
     status
   })
     .then(response => {

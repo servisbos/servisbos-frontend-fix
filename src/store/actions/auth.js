@@ -3,7 +3,7 @@ import Axios from "axios";
 import Cookies from "js-cookie";
 
 export const signUp = data => dispatch => {
-  Axios.post("http://localhost:8000/api/auth/signup", data)
+  Axios.post(`${process.env.REACT_APP_API_URL}/api/auth/signup`, data)
     .then(response => {
       if (response.status === 200) {
         dispatch(setSignUpStatus(true));
@@ -21,7 +21,7 @@ export const setSignUpStatus = value => ({
 });
 
 export const signIn = data => dispatch => {
-  Axios.post("http://localhost:8000/api/auth/signin", data)
+  Axios.post(`${process.env.REACT_APP_API_URL}/api/auth/signin`, data)
     .then(response => {
       if (response.status === 200) {
         Cookies.set("token", response.data.token, { expires: 7 });

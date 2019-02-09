@@ -5,7 +5,7 @@ import Cookies from "js-cookie";
 
 export const fetchUserServiceTypes = () => dispatch => {
   const token = Cookies.get("token");
-  Axios.get("http://localhost:8000/api/user_service_type")
+  Axios.get(`${process.env.REACT_APP_API_URL}/api/user_service_type`)
     .then(({ data: { userservicetype } }) => {
       dispatch({
         type: FETCH_USER_SERVICE_TYPES,
@@ -16,8 +16,12 @@ export const fetchUserServiceTypes = () => dispatch => {
       console.error(err);
     });
 };
-export const fetchUserServiceBySpecialization = data => dispatch => {
-  Axios.get(`http://localhost:8000/api/user_service_type?${data.keyword}`)
+export const fetchUserServiceBySpecialization = idServicetype => dispatch => {
+  Axios.get(
+    `${
+      process.env.REACT_APP_API_URL
+    }/api/user_service_type/findProvider/${idServicetype}`
+  )
     .then(({ data: { userservicetype } }) => {
       console.log(userservicetype);
       dispatch({

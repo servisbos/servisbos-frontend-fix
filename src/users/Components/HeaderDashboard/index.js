@@ -1,14 +1,23 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { signIn } from "../../../store/actions/auth";
-
+import { signIn, signOut } from "../../../store/actions/auth";
+import { Redirect } from "react-router-dom";
 class HeaderDashboard extends Component {
+  handleSignOut = () => {
+    this.props.signOut();
+  };
   render() {
-    const { dataUserLogin, idUserLogin } = this.props;
+    const { dataUserLogin, isAuthenticated } = this.props;
+    console.log(isAuthenticated);
     {
       dataUserLogin && console.log(dataUserLogin);
     }
+
+    if (!isAuthenticated) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <Fragment>
         <header className="header_sticky">
@@ -53,18 +62,31 @@ class HeaderDashboard extends Component {
                     </li>
                     <li className="submenu">
                       <Link
-                        to="/user/dashboard/list_provider"
+                        to="/user/dashboard/list_provider/0"
                         className="show-submenu"
                       >
                         Services
                       </Link>
                     </li>
-                    <li className="submenu">
+                    {/* <li className="submenu">
                       <Link
                         to="/user/dashboard/user_request"
                         className="show-submenu"
                       >
                         Request
+                      </Link>
+                    </li> */}
+                    <li className="nav-item">
+                      <Link
+                        className="nav-link"
+                        to="#"
+                        onClick={e => {
+                          e.preventDefault();
+                          this.handleSignOut();
+                        }}
+                      >
+                        <i className="fa fa-fw fa-sign-out" />
+                        Logout
                       </Link>
                     </li>
                   </ul>
@@ -79,11 +101,13 @@ class HeaderDashboard extends Component {
 }
 const mapStateToProps = store => ({
   idUserLogin: store.auth.idUserLogin,
-  dataUserLogin: store.auth.dataUserLogin
+  dataUserLogin: store.auth.dataUserLogin,
+  isAuthenticated: store.auth.isAuthenticated
 });
 export default connect(
   mapStateToProps,
   {
-    signIn
+    signIn,
+    signOut
   }
 )(HeaderDashboard);

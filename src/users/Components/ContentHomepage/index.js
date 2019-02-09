@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { signIn } from "../../../store/actions/auth";
-
+import { Link } from "react-router-dom";
 import Icon1 from "../../../assets/img/cuci-mobil.svg";
 import Icon2 from "../../../assets/img/nyuci-motor.svg";
 import Icon3 from "../../../assets/img/ganti-oli.svg";
@@ -96,14 +96,14 @@ class Main extends Component {
           </div>
           {/* End row */}
           <p className="text-center">
-            <a href="" className="btn_1 medium">
+            <Link to="/user/dashboard/list_provider/0" className="btn_1 medium">
               Find Mechanic
-            </a>
+            </Link>
           </p>
         </div>
         {/* End container */}
 
-        <div className="container margin_120_95">
+        <div className="container margin_120_45">
           <div className="main_title">
             <h2>Find by specialization</h2>
             <p>
@@ -114,39 +114,54 @@ class Main extends Component {
           </div>
           <div className="row">
             <div className="col-lg-4 col-md-6">
-              <a className="box_cat_home">
+              <Link
+                className="box_cat_home"
+                to="/user/dashboard/list_provider/1"
+              >
                 <i className="icon-info-4" />
                 <img src={Icon1} width={100} height={100} alt="" />
-                <h3>Car Wash</h3>
-              </a>
+                <h4>Car Wash</h4>
+              </Link>
             </div>
             <div className="col-lg-4 col-md-6">
-              <a className="box_cat_home">
+              <Link
+                className="box_cat_home"
+                to="/user/dashboard/list_provider/2"
+              >
                 <i className="icon-info-4" />
                 <img src={Icon2} width={100} height={100} alt="" />
-                <h3>Motorcycle Wash</h3>
-              </a>
+                <h4>Motorcycle Wash</h4>
+              </Link>
             </div>
             <div className="col-lg-4 col-md-6">
-              <a className="box_cat_home">
+              <Link
+                className="box_cat_home"
+                to="/user/dashboard/list_provider/3"
+              >
                 <i className="icon-info-4" />
                 <img src={Icon3} width={100} height={100} alt="" />
-                <h3>Oil Change</h3>
-              </a>
+                <h4>Oil Change</h4>
+              </Link>
             </div>
             <div className="col-lg-6 col-md-6">
-              <a className="box_cat_home">
+              <Link
+                className="box_cat_home"
+                to="/user/dashboard/list_provider/4"
+              >
                 <i className="icon-info-4" />
                 <img src={Icon4} width={120} height={120} alt="" />
-                <h3>Tyres Change</h3>
-              </a>
+                <h4>Tyres Change</h4>
+              </Link>
             </div>
             <div className="col-lg-6 col-md-6">
-              <a className="box_cat_home">
+              <Link
+                className="box_cat_home"
+                to="/user/dashboard/list_provider/5"
+              >
                 <i className="icon-info-4" />
                 <img src={Icon5} width={120} height={120} alt="" />
-                <h3>Machine Tuneup</h3>
-              </a>
+                <h4>Machine Tuneup</h4>
+              </Link>
             </div>
           </div>
         </div>

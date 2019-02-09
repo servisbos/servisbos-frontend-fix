@@ -21,7 +21,7 @@ class DashboardProvider extends Component {
           />
           <Route
             exact
-            path={`${this.props.match.path}/request`}
+            path={`${this.props.match.path}/request/:loginid`}
             component={IndexRequest}
           />
         </div>

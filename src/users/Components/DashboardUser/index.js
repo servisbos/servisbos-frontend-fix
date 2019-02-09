@@ -5,6 +5,7 @@ import ListProvider from "../ListProvider";
 import DetailPage from "../DetailPage";
 import BookingPage from "../BookingPage";
 import ConfirmPage from "../ConfirmPage";
+import RequestPage from "../RequestPage";
 
 import Footer from "../Footer";
 import { Route } from "react-router-dom";
@@ -22,9 +23,10 @@ class DashboardUser extends Component {
             component={ContentHomepage}
           />
           <Route
-            path={`${this.props.match.path}/list_provider`}
+            path={`${this.props.match.path}/list_provider/:idServiceType`}
             component={ListProvider}
           />
+
           <Route
             path={`${this.props.match.path}/confirm`}
             component={ConfirmPage}
@@ -38,8 +40,8 @@ class DashboardUser extends Component {
             component={BookingPage}
           />
           <Route
-            path={`${this.props.match.path}/user_request/:loginid`}
-            component={BookingPage}
+            path={`${this.props.match.path}/user_request`}
+            component={RequestPage}
           />
           <Footer />
           <div id="toTop" />
