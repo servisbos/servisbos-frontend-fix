@@ -26,6 +26,7 @@ class DashboardUser extends Component {
             path={`${this.props.match.path}/list_provider/:idServiceType`}
             component={ListProvider}
           />
+
           <Route
             path={`${this.props.match.path}/confirm`}
             component={ConfirmPage}

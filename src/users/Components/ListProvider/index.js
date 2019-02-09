@@ -65,6 +65,56 @@ class ListProvider extends Component {
         <div className="container margin_60_35">
           <div className="row">
             <div className="col-lg-12">
+              <div className="filters_listing">
+                <div className="container">
+                  <ul className="clearfix">
+                    <li>
+                      <h6>Type</h6>
+                      <div className="switch-field">
+                        <input
+                          type="radio"
+                          id="all"
+                          name="type_patient"
+                          defaultValue="all"
+                          defaultChecked
+                        />
+                        <label htmlFor="all">All</label>
+                        <input
+                          type="radio"
+                          id="doctors"
+                          name="type_patient"
+                          defaultValue="doctors"
+                        />
+                        <label htmlFor="doctors">Mechanic</label>
+                      </div>
+                    </li>
+                    <li>
+                      <h6>Layout</h6>
+                      <div className="layout_view">
+                        <a href="#0" className="active">
+                          <i className="icon-th" />
+                        </a>
+                        <a href="list.html">
+                          <i className="icon-th-list" />
+                        </a>
+                        <a href="list-map.html">
+                          <i className="icon-map-1" />
+                        </a>
+                      </div>
+                    </li>
+                    <li>
+                      <h6>Sort by</h6>
+                      <select name="orderby" className="selectbox">
+                        <option value="Closest">Closest</option>
+                        <option value="Best rated">Best rated</option>
+                        <option value="Men">Men</option>
+                        <option value="Women">Women</option>
+                      </select>
+                    </li>
+                  </ul>
+                </div>
+                {/* /container */}
+              </div>
               <div className="row">
                 {user_service_types &&
                   user_service_types.map(user_service_type => (

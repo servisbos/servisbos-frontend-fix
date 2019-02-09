@@ -4,6 +4,7 @@ import "../../../assets/vendor/font-awesome/css/font-awesome.min.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { signIn, signOut } from "../../../store/actions/auth";
+import { Redirect } from "react-router-dom";
 
 class NavbarDashboard extends Component {
   handleSignOut = () => {
@@ -12,7 +13,9 @@ class NavbarDashboard extends Component {
 
   render() {
     const { idUserLogin, isAuthenticated } = this.props;
-    console.log(isAuthenticated);
+    if (!isAuthenticated) {
+      return <Redirect to="/" />;
+    }
     return (
       <nav
         className="navbar navbar-expand-lg navbar-dark bg-default fixed-top"

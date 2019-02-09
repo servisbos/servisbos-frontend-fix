@@ -124,7 +124,7 @@ class Main extends Component {
               >
                 <i className="icon-info-4" />
                 <img src={Icon1} width={100} height={100} alt="" />
-                <h3>Car Wash</h3>
+                <h4>Car Wash</h4>
               </Link>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -134,7 +134,7 @@ class Main extends Component {
               >
                 <i className="icon-info-4" />
                 <img src={Icon2} width={100} height={100} alt="" />
-                <h3>Motorcycle Wash</h3>
+                <h4>Motorcycle Wash</h4>
               </Link>
             </div>
             <div className="col-lg-4 col-md-6">
@@ -144,7 +144,7 @@ class Main extends Component {
               >
                 <i className="icon-info-4" />
                 <img src={Icon3} width={100} height={100} alt="" />
-                <h3>Oil Change</h3>
+                <h4>Oil Change</h4>
               </Link>
             </div>
             <div className="col-lg-6 col-md-6">
@@ -154,7 +154,7 @@ class Main extends Component {
               >
                 <i className="icon-info-4" />
                 <img src={Icon4} width={120} height={120} alt="" />
-                <h3>Tyres Change</h3>
+                <h4>Tyres Change</h4>
               </Link>
             </div>
             <div className="col-lg-6 col-md-6">
@@ -164,7 +164,7 @@ class Main extends Component {
               >
                 <i className="icon-info-4" />
                 <img src={Icon5} width={120} height={120} alt="" />
-                <h3>Machine Tuneup</h3>
+                <h4>Machine Tuneup</h4>
               </Link>
             </div>
           </div>

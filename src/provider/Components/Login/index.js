@@ -37,7 +37,7 @@ class LoginProvider extends Component {
         <div className="bg_color_2">
           <div className="container margin_60_35">
             <div id="login">
-              <h1>Please login to Servisbos</h1>
+              <h3>Please login to Servisbos</h3>
               <div className="box_form">
                 <form onSubmit={this.handleSubmit}>
                   <div className="form-group">

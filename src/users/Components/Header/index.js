@@ -39,37 +39,14 @@ class Header extends Component {
                 <div className="main-menu">
                   <ul>
                     <li className="submenu">
-                      <a href="#0" className="show-submenu">
+                      <Link to="/" className="show-submenu">
                         Home
-                        <i className="icon-down-open-mini" />
-                      </a>
-                      <ul>
-                        <li>
-                          <Link to="/">Home </Link>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="submenu">
-                      <a href="#0" className="show-submenu">
-                        Pages
-                        <i className="icon-down-open-mini" />
-                      </a>
-                      <ul>
-                        <li>
-                          <a href="list.html">List page</a>
-                        </li>
-                      </ul>
+                      </Link>
                     </li>
                     <li className="submenu">
                       <a href="#0" className="show-submenu">
                         About
-                        <i className="icon-down-open-mini" />
                       </a>
-                      <ul>
-                        <li>
-                          <a href="#">How We Work</a>
-                        </li>
-                      </ul>
                     </li>
                   </ul>
                 </div>
