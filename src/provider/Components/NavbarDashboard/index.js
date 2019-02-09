@@ -62,6 +62,20 @@ class NavbarDashboard extends Component {
                 <span className="nav-link-text">Request</span>
               </Link>
             </li>
+            {/* <li
+              className="nav-item"
+              data-toggle="tooltip"
+              data-placement="right"
+              title="History"
+            >
+              <Link
+                className="nav-link"
+                to={`/provider/dashboard/history/${idUserLogin}`}
+              >
+                <i className="fa fa-fw fa-briefcase" />
+                <span className="nav-link-text">History</span>
+              </Link>
+            </li> */}
           </ul>
           <ul className="navbar-nav sidenav-toggler">
             <li className="nav-item">
