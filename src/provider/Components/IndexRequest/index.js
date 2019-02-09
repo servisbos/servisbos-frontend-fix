@@ -1,8 +1,7 @@
 import React, { Component, Fragment } from "react";
 import "../../../assets/css/admin.css";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-
+import { Link, Redirect } from "react-router-dom";
 import {
   fetchDataOrderByIdProvider,
   confirmOrder
@@ -13,14 +12,14 @@ class IndexRequest extends Component {
     const { loginid } = this.props.match.params;
     this.props.fetchDataOrderByIdProvider(loginid);
   }
-  handleButton = (id_order, status) => {
-    this.props.confirmOrder(id_order, status);
-  };
 
   render() {
     const { dataOrder, confirmStatus } = this.props;
-    console.log(dataOrder);
-
+    const { loginid } = this.props.match.params;
+    // if (confirmStatus) {
+    //   // this.forceUpdate();
+    //   return <Redirect to={`/provider/dashboard/request/${loginid}`} />;
+    // }
     return (
       <div className="content-wrapper">
         <div className="container-fluid">
@@ -56,29 +55,37 @@ class IndexRequest extends Component {
                       {data.status === "PENDING" ? (
                         <ul className="buttons">
                           <li>
-                            <Link
-                              to=""
+                            <button
                               class="btn_1 gray approve"
                               onClick={e => {
                                 e.preventDefault();
-                                this.handleButton(data.id, "ACCEPTED");
+                                const { loginid } = this.props.match.params;
+                                this.props.confirmOrder(
+                                  data.id,
+                                  "ACCEPTED",
+                                  loginid
+                                );
                               }}
                             >
                               <i class="fa fa-fw fa-check-circle-o" /> Approve
-                            </Link>
+                            </button>
                           </li>
                           <li>
-                            <Link
-                              to=""
+                            <button
                               className="btn_1 gray delete wishlist_close"
                               onClick={e => {
                                 e.preventDefault();
-                                this.handleButton(data.id, "FINISHED");
+                                const { loginid } = this.props.match.params;
+                                this.props.confirmOrder(
+                                  data.id,
+                                  "FINISHED",
+                                  loginid
+                                );
                               }}
                             >
                               <i className="fa fa-fw fa-times-circle-o" />{" "}
                               Cancel
-                            </Link>
+                            </button>
                           </li>
                         </ul>
                       ) : (

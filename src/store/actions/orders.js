@@ -40,7 +40,6 @@ export const fetchDataProviderToBookingPage = id_provider => dispatch => {
 };
 
 export const fetchDataOrderByIdProvider = id_provider => dispatch => {
-  const token = Cookies.get("token");
   Axios.get(
     `${process.env.REACT_APP_API_URL}/api/order/provider/${id_provider}`
   )
@@ -109,7 +108,7 @@ export const setConfirmationStatus = value => ({
   payload: value
 });
 
-export const confirmOrder = (id_order, status) => dispatch => {
+export const confirmOrder = (id_order, status, id_provider) => dispatch => {
   Axios.patch(`${process.env.REACT_APP_API_URL}/api/order/${id_order}`, {
     status
   })
@@ -117,6 +116,20 @@ export const confirmOrder = (id_order, status) => dispatch => {
       console.log(response);
       if (response.status === 200) {
         dispatch(setConfirmationStatus(true));
+
+        Axios.get(
+          `${process.env.REACT_APP_API_URL}/api/order/provider/${id_provider}`
+        )
+          .then(response => {
+            console.log(response.data.orders);
+            dispatch({
+              type: GET_DATA_ORDER,
+              payload: response.data.orders
+            });
+          })
+          .catch(err => {
+            console.error(err);
+          });
       }
     })
     .catch(err => {
