@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { signIn, signOut } from "../../../store/actions/auth";
 import { Redirect } from "react-router-dom";
+import Logo from "../../../assets/img/logo.png";
 
 class NavbarDashboard extends Component {
   handleSignOut = () => {
@@ -22,7 +23,13 @@ class NavbarDashboard extends Component {
         id="mainNav"
       >
         <Link className="navbar-brand" to="/">
-          <img src="/" alt="test" data-retina="true" width={163} height={36} />
+          <img
+            src={Logo}
+            alt="servisbos"
+            data-retina="true"
+            width={36}
+            height={36}
+          />
         </Link>
         <button
           className="navbar-toggler navbar-toggler-right"

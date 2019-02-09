@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { signIn, signOut } from "../../../store/actions/auth";
 import { Redirect } from "react-router-dom";
+import Logo from "../../../assets/img/logo.png";
 class HeaderDashboard extends Component {
   handleSignOut = () => {
     this.props.signOut();
@@ -24,10 +25,10 @@ class HeaderDashboard extends Component {
           <div className="container">
             <div className="row">
               <div className="col-lg-3 col-6">
-                <div id="">
+                <div id="logo">
                   <h1>
                     <Link to="/user/dashboard" title="servisbos">
-                      Servisbos
+                      <img src={Logo} width={57} height={57} />
                     </Link>
                   </h1>
                 </div>

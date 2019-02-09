@@ -12,7 +12,7 @@ class Header extends Component {
                 <div id="">
                   <h1>
                     <Link to="/" title="servisbos">
-                      Servisbos
+                      <img src={Logo} width={57} height={57} />
                     </Link>
                   </h1>
                 </div>
@@ -42,11 +42,6 @@ class Header extends Component {
                       <Link to="/" className="show-submenu">
                         Home
                       </Link>
-                    </li>
-                    <li className="submenu">
-                      <a href="#0" className="show-submenu">
-                        About
-                      </a>
                     </li>
                   </ul>
                 </div>

@@ -31,7 +31,7 @@ class IndexRequest extends Component {
           </ol>
           <div className="box_general">
             <div className="header_box">
-              <h2 className="d-inline-block">Bookmarks List</h2>
+              <h2 className="d-inline-block">Booking List</h2>
             </div>
             {dataOrder &&
               dataOrder.map(data => (
