@@ -28,7 +28,8 @@ class HeaderDashboard extends Component {
                 <div id="logo">
                   <h1>
                     <Link to="/user/dashboard" title="servisbos">
-                      <img src={Logo} width={57} height={57} />
+                      <img src={Logo} width={50} height={50} />
+                      Servisbos
                     </Link>
                   </h1>
                 </div>

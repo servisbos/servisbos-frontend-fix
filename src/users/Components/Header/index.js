@@ -12,7 +12,8 @@ class Header extends Component {
                 <div id="">
                   <h1>
                     <Link to="/" title="servisbos">
-                      <img src={Logo} width={57} height={57} />
+                      <img src={Logo} width={50} height={50} />
+                      Servisbos
                     </Link>
                   </h1>
                 </div>
